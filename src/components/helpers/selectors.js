@@ -13,11 +13,11 @@ export function getBodyLocations(bodyLocations) {
 }
 
 
-//get subLocations for given body location from API
-export function getSubLocations() {
-  const returnObj = {};
-  return returnObj;
-}
+// //get subLocations for given body location from API
+// export function getSubLocations() {
+//   const returnObj = {};
+//   return returnObj;
+// }
 
 // //get symptoms object from API with list of possible symptoms for sub location
 // export function getSymptoms() {

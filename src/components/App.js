@@ -1,14 +1,16 @@
 import "../styles/App.css";
 import SymptomList from "./SymptomList";
 import Button from "./Button";
+import NavigationBar from "./NavigationBar"
 
 
 function App(props) {
  
   return (
+    
     <div className="App">
+      <NavigationBar/>
       <header className="App-header"></header>
-      <nav>Nav Bar</nav>
       <container>
         <SymptomList />
         <Button>Diagnose It!!</Button>
