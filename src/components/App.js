@@ -28,8 +28,6 @@ function App(props) {
         <Route exact = {true} path="/appointments">
           <p>Appointments</p>
         </Route>
-
-
       </div>
     </Router>
   );

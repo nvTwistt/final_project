@@ -8,7 +8,6 @@ import './SymptomItem.css'
 export default function symptomForm(props) {
   //need to get symptoms for each body part from API
   //for now will hard code
-  console.log(props)
 
   return (
     <li class = "symptom-item">
