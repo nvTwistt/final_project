@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import "components/style.css";
 import SymptomItem from "./SymptomItem";
-import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 

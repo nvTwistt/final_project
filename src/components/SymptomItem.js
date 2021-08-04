@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Button from "./Button";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 // import "components/style.css";

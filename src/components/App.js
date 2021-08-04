@@ -1,6 +1,5 @@
 import "../styles/App.css";
 import SymptomList from "./SymptomList";
-import Button from "./Button";
 import NavigationBar from "./NavigationBar"
 
 
