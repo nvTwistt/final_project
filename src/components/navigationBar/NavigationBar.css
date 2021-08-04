@@ -6,6 +6,12 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+a {
+  color: white;
+}
+a:hover {
+  color: rgb(114, 111, 111)
+}
 
 nav ul {
   display: flex;

@@ -1,6 +1,6 @@
 import "./App.css";
 import SymptomsPage from "./symptoms/SymptomsPage";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "./navigationBar/NavigationBar";
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
 function App(props) {
