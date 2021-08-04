@@ -1,5 +1,6 @@
 import React from "react";
-import '../styles/NavigationBar.css'
+import { Link } from "react-router-dom";
+import './NavigationBar.css'
 
 export default function NavigationBar(props) {
   return (
@@ -7,10 +8,13 @@ export default function NavigationBar(props) {
       Diagnose.It
       <ul>
         <li>
-          <a href="/patient">Patient Login</a>
+          <Link to={'/patients/login'}>Patient Login</Link>
         </li>
         <li>
-          <a href="/doctors">Doctor Login</a>
+          <Link to={'/doctors/login'}>Patient Login</Link>
+        </li>
+        <li>
+          <Link to={'/register'}>Register</Link>
         </li>
       </ul>
     </nav>

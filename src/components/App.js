@@ -1,19 +1,38 @@
-import "../styles/App.css";
-import SymptomList from "./SymptomList";
-import NavigationBar from "./NavigationBar"
-
+import "./App.css";
+import SymptomsPage from "./symptoms/SymptomsPage";
+import NavigationBar from "./NavigationBar";
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 function App(props) {
- 
   return (
-    
-    <div className="App">
-      <NavigationBar/>
-      <container>
-        <SymptomList />
-        <button className= "diagnosis-button">Diagnose It!!</button>
-      </container>
-    </div>
+    <Router>
+      <div className="App">
+        <NavigationBar />
+
+        <Route exact = {true} path="/">
+          <SymptomsPage />
+        </Route>
+
+        <Route exact = {true} path="/login">
+          <p>Login</p>
+        </Route>
+
+        <Route exact = {true} path="/logout">
+        <p>Logout</p>
+        </Route>
+
+        <Route exact = {true} path="/register">
+        <p>Register</p>
+        </Route>
+
+
+        <Route exact = {true} path="/appointments">
+          <p>Appointments</p>
+        </Route>
+
+
+      </div>
+    </Router>
   );
 }
 
