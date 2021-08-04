@@ -1,13 +1,18 @@
-import '../styles/App.css';
+import "../styles/App.css";
+import SymptomList from "./SymptomList";
+import NavigationBar from "./NavigationBar"
 
-function App() {
+
+function App(props) {
+ 
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <p>
-          DiagnoseIt
-        </p>
-      </header>
+      <NavigationBar/>
+      <container>
+        <SymptomList />
+        <button className= "diagnosis-button">Diagnose It!!</button>
+      </container>
     </div>
   );
 }

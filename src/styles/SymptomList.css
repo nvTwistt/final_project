@@ -1,0 +1,13 @@
+.add-symptom-button {
+  color: rgb(80, 175, 80);
+  align-self: center;
+}
+
+.symptoms-list {
+  display: flexbox;
+  align-self: center;
+  text-align: center;
+}
+
+
+

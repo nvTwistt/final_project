@@ -1,0 +1,24 @@
+/* symptom items */
+
+
+
+.symptom-item {
+  margin: 0.5rem;
+  text-align: center;
+}
+
+.delete-symptom-button {
+  color: rgb(189, 131, 131);
+  align-self: center;
+}
+
+.delete-symptom-button :hover {
+  color: red;
+}
+
+
+
+.diagnosis-button :hover {
+  background-color:blue;
+}
+
