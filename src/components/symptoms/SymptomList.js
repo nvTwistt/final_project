@@ -1,35 +1,28 @@
 import React, { useEffect, useState } from "react";
 // import "components/style.css";
-import SymptomItem from "./SymptomItem";
+import SymptomForm from "./SymptomForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import './SymptomList.css'
+import "./SymptomList.css";
 
 export default function SymptomList(props) {
-  const [symptomList, setSymptomList] = useState([]);
-
-  const addToSymptomList = () => {
-    symptomList.push(symptomList.length + 1);
-    setSymptomList([...symptomList]);
-  };
-
-  const deleteFromSymptomsList = (index) => {
-    symptomList.splice(index, 1);
-    setSymptomList([...symptomList]);
-  };
   
+
   return (
     <section className="symptoms-list">
-      <div className = "add-symptom-button">Add Symptom<FontAwesomeIcon onClick={addToSymptomList} icon={faPlusCircle}/></div>
+      <div className="add-symptom-button">
+        Add Symptom
+        <FontAwesomeIcon onClick={props.addToSymptomList} icon={faPlusCircle} />
+      </div>
       <ul>
-        {symptomList.map((list, index) => {
+        {props.symptomList.map((list, index) => {
           return (
-            <SymptomItem 
-            index={index} 
-            delSymptom={deleteFromSymptomsList} 
-            bodyPart={"bodyPart"} 
-            subLocation ={"subLocation"}
-            symptom = {"symptom"}/>
+            <SymptomForm
+              id={list.id}
+              index={index}
+              onChange={(symptom)=>props.editSymptoms(index, symptom)}
+              delSymptom={props.deleteFromSymptomsList}
+            />
           );
         })}
       </ul>
