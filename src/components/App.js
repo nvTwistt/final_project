@@ -10,10 +10,9 @@ function App(props) {
     
     <div className="App">
       <NavigationBar/>
-      <header className="App-header"></header>
       <container>
         <SymptomList />
-        <Button>Diagnose It!!</Button>
+        <button className= "diagnosis-button">Diagnose It!!</button>
       </container>
     </div>
   );

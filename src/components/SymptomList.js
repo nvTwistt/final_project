@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 // import "components/style.css";
 import SymptomItem from "./SymptomItem";
 import Button from "./Button";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default function SymptomList(props) {
   const [symptomList, setSymptomList] = useState([]);
@@ -20,7 +20,8 @@ export default function SymptomList(props) {
   };
 
   return (
-    <section>
+    <section class="symptoms-list">
+      <div class = "add-symptom-button">Add Symptom<FontAwesomeIcon onClick={addToSymptomList} icon={faPlusCircle}/></div>
       <ul>
         {symptomList.map((list, index) => {
           return (
@@ -28,7 +29,6 @@ export default function SymptomList(props) {
           );
         })}
       </ul>
-      <Button onClick={addToSymptomList}> <FontAwesomeIcon icon={faPlusCircle} />Add Symptom</Button>
     </section>
   );
 }

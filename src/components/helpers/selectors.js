@@ -1,16 +1,16 @@
 import axios from "axios";
 
 //get bodyLocations
-export function getBodyLocations(bodyLocations) {
-  let bodyLocationNames = [];
-  for (let ele of bodyLocations) {
-    bodyLocationNames.push(ele["Name"]);
-  }
+// export function getBodyLocations(bodyLocations) {
+//   let bodyLocationNames = [];
+//   for (let ele of bodyLocations) {
+//     bodyLocationNames.push(ele["Name"]);
+//   }
 
-  console.log(bodyLocationNames);
+//   console.log(bodyLocationNames);
 
-  return bodyLocationNames;
-}
+//   return bodyLocationNames;
+// }
 
 
 // //get subLocations for given body location from API

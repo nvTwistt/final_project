@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 // import "components/style.css";
 
 
@@ -11,7 +11,7 @@ export default function symptomForm(props) {
   console.log(props)
 
   return (
-    <li>
+    <li class = "symptom-item">
       <label>
         Body Part:
         <select>
@@ -30,7 +30,7 @@ export default function symptomForm(props) {
           <option value="swollen">swollen</option>
         </select>
       </label>
-      <Button onClick={()=>props.delSymptom(props.index)}>Delete Symptom</Button>
+      <span class = "delete-symptom-button"><FontAwesomeIcon onClick={()=>props.delSymptom(props.index)} icon={faTrash} /></span>
     </li>
   );
 }
