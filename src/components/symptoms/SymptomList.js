@@ -10,7 +10,6 @@ export default function SymptomList(props) {
 
   const addToSymptomList = () => {
     symptomList.push(symptomList.length + 1);
-    console.log(symptomList);
     setSymptomList([...symptomList]);
   };
 
@@ -18,14 +17,19 @@ export default function SymptomList(props) {
     symptomList.splice(index, 1);
     setSymptomList([...symptomList]);
   };
-
+  
   return (
     <section class="symptoms-list">
       <div class = "add-symptom-button">Add Symptom<FontAwesomeIcon onClick={addToSymptomList} icon={faPlusCircle}/></div>
       <ul>
         {symptomList.map((list, index) => {
           return (
-            <SymptomItem index={index} delSymptom={deleteFromSymptomsList} />
+            <SymptomItem 
+            index={index} 
+            delSymptom={deleteFromSymptomsList} 
+            bodyPart={"bodyPart"} 
+            subLocation ={"subLocation"}
+            symptom = {"symptom"}/>
           );
         })}
       </ul>
