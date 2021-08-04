@@ -16,6 +16,9 @@ export default function NavigationBar(props) {
         <li>
           <Link to={'/register'}>Register</Link>
         </li>
+        <li>
+          <Link to={'/appointments'}>Appointments</Link>
+        </li>
       </ul>
     </nav>
   );
