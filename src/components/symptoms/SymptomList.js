@@ -19,8 +19,8 @@ export default function SymptomList(props) {
   };
   
   return (
-    <section class="symptoms-list">
-      <div class = "add-symptom-button">Add Symptom<FontAwesomeIcon onClick={addToSymptomList} icon={faPlusCircle}/></div>
+    <section className="symptoms-list">
+      <div className = "add-symptom-button">Add Symptom<FontAwesomeIcon onClick={addToSymptomList} icon={faPlusCircle}/></div>
       <ul>
         {symptomList.map((list, index) => {
           return (

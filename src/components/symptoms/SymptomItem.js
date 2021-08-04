@@ -10,7 +10,7 @@ export default function symptomForm(props) {
   //for now will hard code
   
   return (
-    <li class = "symptom-item">
+    <li className = "symptom-item">
       <label>
         Body Part:
         <select>
@@ -29,7 +29,7 @@ export default function symptomForm(props) {
           <option value="swollen">swollen</option>
         </select>
       </label>
-      <span class = "delete-symptom-button"><FontAwesomeIcon onClick={()=>props.delSymptom(props.index)} icon={faTrash} /></span>
+      <span className = "delete-symptom-button"><FontAwesomeIcon onClick={()=>props.delSymptom(props.index)} icon={faTrash} /></span>
     </li>
   );
 }

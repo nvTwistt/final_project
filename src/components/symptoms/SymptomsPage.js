@@ -12,7 +12,7 @@ export default function SymptomsPage(props) {
 
 
   return (
-    <form class="symptom-form">
+    <form className="symptom-form">
       <input className="diagnosis-button" onClick={()=>getDiagnosis} type="submit" value="Get Diagnosis" />
       <SymptomList />
     </form>
