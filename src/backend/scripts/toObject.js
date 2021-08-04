@@ -1,435 +1,297 @@
 const symptoms = 
 [
   {
-    "ID": 21,
-    "Name": "Itching of skin",
+    "ID": 10,
+    "Name": "Abdominal pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      17,
-      46
+      16,
+      36
     ],
     "ProfName": "",
     "Synonyms": [
-      "Itch",
-      "Pruritus",
-      "Skin itching"
+      " Stomach ache"
     ]
   },
   {
-    "ID": 24,
-    "Name": "Blackhead",
+    "ID": 44,
+    "Name": "Nausea",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
       6,
-      23,
+      22,
+      15,
+      31,
+      16,
+      36,
       17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Blackheads",
-      "Comedones"
-    ]
-  },
-  {
-    "ID": 25,
-    "Name": "Skin nodules",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Papula",
-      "Solid elevation of skin",
-      "Thick elevation of skin",
-      "Elevation of skin",
-      "Skin elevation"
-    ]
-  },
-  {
-    "ID": 26,
-    "Name": "Skin lesion",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Pimple",
-      "Small blister",
-      "Pustule",
-      "Skin injury"
-    ]
-  },
-  {
-    "ID": 34,
-    "Name": "Skin wheal",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Hives",
-      "Skin edema",
-      "Skin oedema"
-    ]
-  },
-  {
-    "ID": 61,
-    "Name": "Skin redness",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Erythema",
-      "Red skin",
-      "Red colored skin"
-    ]
-  },
-  {
-    "ID": 62,
-    "Name": "Formation of blisters on a skin area",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      6,
-      25,
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Vesicle",
-      "Formation of blisters on a place of the skin",
-      "Formation of blisters on an area of the skin",
-      "Formation of blisters on an area of skin",
-      "Blisters"
-    ]
-  },
-  {
-    "ID": 63,
-    "Name": "Non-healing skin wound",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": []
-  },
-  {
-    "ID": 65,
-    "Name": "Irregular mole",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": []
-  },
-  {
-    "ID": 105,
-    "Name": "Yellow colored skin",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Jaundice",
-      "Icterus",
-      "Yellowish discoloration of the skin",
-      "Yellowish skin",
-      "Yellow skin"
-    ]
-  },
-  {
-    "ID": 124,
-    "Name": "Skin rash",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": []
-  },
-  {
-    "ID": 134,
-    "Name": "Crusting",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Encrustation",
-      "Crust formation"
-    ]
-  },
-  {
-    "ID": 138,
-    "Name": "Sweating",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      47,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Perspiration",
-      "Diaphoresis",
-      "Excessive sweating",
-      "Sweating to unusual degree"
-    ]
-  },
-  {
-    "ID": 139,
-    "Name": "Cold sweats",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      47,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": []
-  },
-  {
-    "ID": 149,
-    "Name": "Hot flushes",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46,
       47
     ],
     "ProfName": "",
     "Synonyms": []
   },
   {
-    "ID": 150,
-    "Name": "Pallor",
+    "ID": 45,
+    "Name": "Heartburn",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      17,
-      46
+      6,
+      24,
+      15,
+      31,
+      16,
+      36
     ],
     "ProfName": "",
     "Synonyms": [
-      "Paleness"
+      "Pyrosis"
     ]
   },
   {
-    "ID": 151,
-    "Name": "Dry skin",
+    "ID": 48,
+    "Name": "Bloated feeling in the stomach",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      17,
-      46
+      16,
+      36
     ],
     "ProfName": "",
-    "Synonyms": []
+    "Synonyms": [
+      "Feeling full"
+    ]
   },
   {
-    "ID": 177,
-    "Name": "Muscle pain",
+    "ID": 49,
+    "Name": "Cravings",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      7,
-      48,
-      10,
-      49,
+      6,
+      25,
+      16,
+      36
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Binge eating"
+    ]
+  },
+  {
+    "ID": 50,
+    "Name": "Diarrhea",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36,
+      40
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Diarrhoea",
+      "Loose stool",
+      "Watery stool"
+    ]
+  },
+  {
+    "ID": 54,
+    "Name": "Reduced appetite",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      25,
       17,
       47,
-      46
+      36
     ],
     "ProfName": "",
     "Synonyms": [
-      "Myalgia"
+      "Loss of appetite",
+      "Decreased appetite",
+      "Decrease in hunger"
     ]
   },
   {
-    "ID": 184,
-    "Name": "Hardening of the skin",
+    "ID": 92,
+    "Name": "Early satiety",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Hardening of skin",
-      "Induration"
-    ]
-  },
-  {
-    "ID": 187,
-    "Name": "Wound",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
+      16,
+      36
     ],
     "ProfName": "",
     "Synonyms": []
   },
   {
-    "ID": 214,
-    "Name": "Flaking skin",
+    "ID": 101,
+    "Name": "Vomiting",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      17,
-      46
+      6,
+      25,
+      16,
+      36
     ],
     "ProfName": "",
     "Synonyms": [
-      "Scaling of skin",
-      "Flaking",
-      "Desquamation"
+      "Throwing up"
     ]
   },
   {
-    "ID": 215,
-    "Name": "Moist and softened skin",
+    "ID": 131,
+    "Name": "Increased appetite",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Softened skin"
-    ]
-  },
-  {
-    "ID": 217,
-    "Name": "Skin thickening",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Hyperkeratosis",
-      "Thickening of skin"
-    ]
-  },
-  {
-    "ID": 218,
-    "Name": "Coarsening of the skin structure",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": []
-  },
-  {
-    "ID": 220,
-    "Name": "Increased touch sensitivity",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": []
-  },
-  {
-    "ID": 240,
-    "Name": "Blue spot on skin",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Hematoma"
-    ]
-  },
-  {
-    "ID": 987,
-    "Name": "Muscle weakness",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      7,
-      48,
-      10,
-      49,
+      6,
+      25,
       17,
       47,
-      46
+      36
     ],
     "ProfName": "",
     "Synonyms": [
-      "Muscular weakness",
-      "Myasthenia"
+      "Increase in hunger"
     ]
   },
   {
-    "ID": 991,
-    "Name": "Blue colored skin",
+    "ID": 153,
+    "Name": "Fast, deepened breathing",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      24,
+      25,
+      15,
+      31,
+      16,
+      36
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Fast breathing",
+      "Hyperventilation"
+    ]
+  },
+  {
+    "ID": 154,
+    "Name": "Flatulence",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Wind"
+    ]
+  },
+  {
+    "ID": 179,
+    "Name": "Stomach burning",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Burning abdominal pain",
+      "Burning stomach ache"
+    ]
+  },
+  {
+    "ID": 181,
+    "Name": "Vomiting blood",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
       6,
       25,
-      7,
-      30,
-      17,
-      46
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Blue colored lips",
-      "Blue colored nails",
-      "Blue colored fingertips",
-      "Cyanosis",
-      "Bluish discoloration of the skin",
-      "Bluish skin",
-      "Blue skin"
-    ]
-  },
-  {
-    "ID": 1001,
-    "Name": "Scar",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      17,
-      46
+      16,
+      36
     ],
     "ProfName": "",
     "Synonyms": []
   },
   {
-    "ID": 1004,
-    "Name": "Night sweats",
+    "ID": 188,
+    "Name": "Abdominal guarding",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      17,
-      47,
-      46
+      16,
+      36
     ],
     "ProfName": "",
     "Synonyms": [
-      "Night sweat",
-      "Nocturnal hyperhidrosis",
-      "Sleep hyperhidrosis",
-      "Sweating at night"
+      "Hard belly",
+      "Tension of abdominal wall muscles"
+    ]
+  },
+  {
+    "ID": 191,
+    "Name": "Rebound tenderness",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36
+    ],
+    "ProfName": "Blumberg sign",
+    "Synonyms": [
+      "Blumberg sign"
+    ]
+  },
+  {
+    "ID": 192,
+    "Name": "Bulging abdominal wall",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Abdomen deformity",
+      "Stomach deformity",
+      "Stomach bump"
+    ]
+  },
+  {
+    "ID": 223,
+    "Name": "Abdominal pain associated with menstruation",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Painful menstruation"
+    ]
+  },
+  {
+    "ID": 284,
+    "Name": "Bleeding from vagina",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36,
+      38
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Vaginal bleeding"
+    ]
+  },
+  {
+    "ID": 989,
+    "Name": "Distended abdomen",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Distended stomach",
+      "Abdominal distension",
+      "Stomach bloating"
     ]
   }
 ]
