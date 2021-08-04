@@ -1,7 +1,4 @@
 /* symptom items */
-
-
-
 .symptom-item {
   margin: 0.5rem;
   text-align: center;
@@ -15,8 +12,6 @@
 .delete-symptom-button :hover {
   color: red;
 }
-
-
 
 .diagnosis-button :hover {
   background-color:blue;
