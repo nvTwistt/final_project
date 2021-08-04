@@ -1,0 +1,39 @@
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS doctors CASCADE;
+DROP TABLE IF EXISTS appointments CASCADE;
+DROP TABLE IF EXISTS specializations CASCADE;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  DOB DATE  NOT NULL,
+  gender VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  phone VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE doctors (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  specialization_id INTEGER REFERENCES specializations(id) ON DELETE CASCADE,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  phone VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE specializations (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE appointments (
+  id SERIAL PRIMARY KEY NOT NULL,
+  doctor_id INTEGER REFERENCES doctors(id) ON DELETE CASCADE,
+  specialization_id INTEGER REFERENCES specializations(id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  status VARCHAR(255) NOT NULL,
+  patient_symptoms VARCHAR(255),
+  diagnosis_name VARCHAR(255),
+  diagnosis_symptoms text[]
+);
