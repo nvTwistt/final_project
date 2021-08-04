@@ -3,58 +3,9 @@
   list-style: none;
 }
 
-/* nav bar styling */
-nav {
-  display: flex;
-  background-color: lightseagreen;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-nav ul li {
-  margin: 0.5rem;
-}
-
 /* App */
 .App {
   display: flexbox;
-}
-
-/* symptom items */
-
-.symptoms-list {
-  display: flexbox;
-  align-self: center;
-  text-align: center;
-}
-
-.symptom-item {
-  margin: 0.5rem;
-  text-align: center;
-}
-
-.add-symptom-button {
-  color: rgb(80, 175, 80);
-  align-self: center;
-}
-
-.add-symptom-button :hover {
-  color: green;
-}
-.delete-symptom-button {
-  color: rgb(189, 131, 131);
-  align-self: center;
-}
-
-.delete-symptom-button :hover {
-  color: red;
 }
 
 .diagnosis-button {
@@ -67,8 +18,3 @@ nav ul li {
   display: inline-block;
   font-size: 16px;
 }
-
-.diagnosis-button :hover {
-  background-color:blue;
-}
-

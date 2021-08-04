@@ -1,0 +1,18 @@
+/* nav bar styling */
+nav {
+  display: flex;
+  background-color: lightseagreen;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+nav ul li {
+  margin: 0.5rem;
+}

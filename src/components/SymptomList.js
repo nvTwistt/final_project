@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import SymptomItem from "./SymptomItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import '../styles/SymptomList.css'
 
 export default function SymptomList(props) {
   const [symptomList, setSymptomList] = useState([]);
