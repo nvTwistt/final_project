@@ -94,3 +94,5 @@ const body = {
     46: skinJointsSymptoms.skin
   },
 };
+
+console.log(body[6][24]['Cough']);
