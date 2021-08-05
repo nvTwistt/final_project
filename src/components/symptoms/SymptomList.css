@@ -3,11 +3,12 @@
   align-self: center;
 }
 
+.add-symptom-button:hover {
+  color: green;
+}
+
 .symptoms-list {
   display: flexbox;
   align-self: center;
   text-align: center;
 }
-
-
-
