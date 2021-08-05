@@ -41,6 +41,7 @@ export default function SymptomsPage(props) {
     setSymptomList([...symptomList]);
   };
 
+
   return (
     <form className="symptom-form">
       <div

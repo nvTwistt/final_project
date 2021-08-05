@@ -12,7 +12,16 @@ export default function SymptomForm(props) {
     symptom: "swollen",
   });
   console.log("State Changed:", state);
+
+  const bodyLocations = require('../../components/helpers/selectors')
+
+  const items = bodyLocations.bodyPartKeys.map(function(item){
+    return <option value={item}>{item}</option>
+  })
+  
+
   return (
+    
     <li className="symptom-item">
       <label>
         Body Part:
@@ -28,8 +37,7 @@ export default function SymptomForm(props) {
             props.onChange(e.target.value, null, null);
           }}
         >
-          <option value="legs">legs</option>
-          <option value="arms">arms</option>
+          {items}
         </select>
       </label>
       <label>

@@ -1,16 +1,28 @@
-import axios from "axios";
+// import axios from "axios";
 
-//get bodyLocations
-// export function getBodyLocations(bodyLocations) {
-//   let bodyLocationNames = [];
-//   for (let ele of bodyLocations) {
-//     bodyLocationNames.push(ele["Name"]);
+
+// get bodyLocations
+
+const bodyParts = require('../../backend/symptoms')
+const bodyPartNames = bodyParts.bodyLocations
+// console.log(bodyPartNames)
+const bodyPartKeys=Object.keys(bodyPartNames)
+console.log(bodyPartKeys)
+
+
+
+// export function getBodyLocations(bodyPartKeys) {
+  
+//   const resultArray = [];
+//   for (const items of bodyPartKeys) {
+//       let string = `<option value=${items}>${items}</option>`;
+//       resultArray.push(string);
 //   }
-
-//   console.log(bodyLocationNames);
-
-//   return bodyLocationNames;
+//   const returnString = resultArray.join("")
+//   console.log(returnString);
 // }
+
+module.exports = {bodyPartKeys};
 
 
 // //get subLocations for given body location from API
