@@ -40,9 +40,11 @@ export default function SymptomForm(props) {
     const accessSubLocationValues = accessBodyLocationObject[state.subLocation];
     return accessSubLocationValues;
   }
+  //SUBLOCATION ID
   const sublocationValue = symptomItems();
   console.log("location: ", bodyPartSubLocation[0])
   console.log("SublocationValue: ", sublocationValue);
+  // BODY PART ID
   const locationID = bodyPartSubLocation[0];
   const symptoms = bodyObj.body[locationID][sublocationValue]
   const symptomKeyFinder = (value) => {
@@ -57,11 +59,35 @@ export default function SymptomForm(props) {
     }
   }
   
-  
+  const symptomID = (bodyObject) => {
+    console.log("new state symptoms: ", state.symptom);
+    // returns list of the body part id and an obj of its sub body parts
+    // example) [16, {arm: 5}]
+    const bodyPartSubLocation = subLocationItems();
+    const locationID = bodyPartSubLocation[0];
+    // returns the sublocation ID 
+    const sublocationValue = symptomItems();
+    console.log("value: ",locationID, sublocationValue);
+    if (sublocationValue !== undefined && locationID) {
+      const symptomObj = bodyObject.body[locationID][sublocationValue]; //obj
+      return symptomObj[state.symptom][0];
+    }
+   //console.log("body obj", bodyObject.body[16][36] )
+  }
+  const getSymptomID = symptomID(bodyObj);
+  console.log("This is the ID: ", getSymptomID);
+  const findKeyByValue = function (object, value){
+    for(const key in object){
+      if(object[key] === value){
+        return key;
+      }
+    }
+  }
+
   // const symptomKeys = Object.keys(symptoms).map(function(item){
   //   return <option value={item}>{item}</option>
   // })
-  console.log("please work! :", symptoms);
+  //console.log("please work! :", symptoms);
   return (
     
     <li className="symptom-item">
