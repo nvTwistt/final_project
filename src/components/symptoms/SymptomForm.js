@@ -7,28 +7,52 @@ import "./SymptomForm.css";
 export default function SymptomForm(props) {
   //need to get symptoms for each body part from API
   //for now will hard code
-  const [symptom, setSymptom] = useState("");
+  const [state, setState] = useState({
+    bodyPart: "legs",
+    subLocation: "ankles",
+    symptom: "swollen",
+  });
+  console.log('State Changed:',state)
   return (
     <li className="symptom-item">
       <label>
         Body Part:
-        <select>
+        <select
+          value={state.bodyPart}
+          onChange={(e) => {
+            let bodyPart = e.target.value
+            console.log(`Event on Body Part ${props.index}. Value changed to:`, e.target.value);
+            setState({...state, bodyPart});
+            props.onChange(e.target.value);
+          }}
+        >
           <option value="legs">legs</option>
+          <option value="arms">arms</option>
         </select>
       </label>
       <label>
         Sublocation:
-        <select>
+        <select
+          value={state.subLocation}
+          onChange={(e) => {
+            let subLocation = e.target.value
+            console.log(`Event on subLocation ${props.index}. Value changed to:`, e.target.value);
+            setState({...state, subLocation});
+            props.onChange(e.target.value);
+          }}
+        >
           <option value="ankles">ankles</option>
+          <option value="wrist">wrist</option>
         </select>
       </label>
       <label>
         Symptom:
         <select
-          value={symptom}
+          value={state.symptom}
           onChange={(e) => {
-            console.log(e.target.value)
-            setSymptom(e.target.value);
+            let symptom = e.target.value
+            console.log(`Event on Symptom ${props.index}. Value changed to:`, e.target.value);
+            setState({...state, symptom});
             props.onChange(e.target.value);
           }}
         >

@@ -5,24 +5,33 @@ import "./SymptomsPage.css";
 
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
+  console.log("*******symptomList", symptomList);
 
-  const getDiagnosis = () => {
-    console.log(symptomList);
-    console.log("clicked");
+  const editSymptoms = (index, bodyPart, subLocation, symptom) => {
+    let newSymptomList = symptomList;
+    if (bodyPart) {
+      newSymptomList[index]["bodyPart"] = bodyPart;
+    }
+
+    if (subLocation) {
+      newSymptomList[index]["subLocation"] = subLocation;
+    }
+
+    if (symptom) {
+      newSymptomList[index]["symptom"] = symptom;
+    }
+
+    setSymptomList(newSymptomList);
   };
 
-  const editSymptoms = (index, symptom) => {
-    console.log("symptom", symptom);
-    console.log("symptomList", symptomList);
-    let newSymptomList = symptomList;
-    newSymptomList[index]["symptom"] = symptom;
-    setSymptomList(newSymptomList);
+  const getDiagnosis = () => {
+    console.log("SEND SYMPTOMS TO API");
   };
 
   const addToSymptomList = () => {
     symptomList.push({
-      body_part: "legs",
-      sublocation: "ankles",
+      bodyPart: "legs",
+      subLocation: "ankles",
       symptom: "swollen",
     });
     setSymptomList([...symptomList]);
