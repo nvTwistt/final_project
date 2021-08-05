@@ -96,5 +96,7 @@ const body = {
     46: skinJointsSymptoms.skin
   },
 };
+
+module.exports = {bodyLocations,body}
 // 16 abdomen
-console.log(body[16][36]['Nausea']);
+console.log(body[15][33]);
