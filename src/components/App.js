@@ -1,36 +1,41 @@
 import "./App.css";
 import SymptomsPage from "./symptoms/SymptomsPage";
 import NavigationBar from "./navigationBar/NavigationBar";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import Login from "./login/Login";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useContext } from "react";
+import { authContext } from "./login/AuthProvider";
 
-function App(props) {
+export default function App(props) {
+  const { auth } = useContext(authContext);
+
   return (
     <Router>
       <div className="App">
         <NavigationBar />
 
-        <Route exact = {true} path="/">
+        <Route exact={true} path="/">
           <SymptomsPage />
         </Route>
 
-        <Route exact = {true} path="/patients/login">
-          <p>Patient Login</p>
+        <Route exact={true} path="/patients/login">
+        {!auth && <Login />}
+          {auth && <p>Logged In!</p>}
         </Route>
 
-        <Route exact = {true} path="/doctors/login">
-        <p>Doctor Login</p>
+        <Route exact={true} path="/doctors/login">
+          {!auth && <Login />}
+          {auth && <p>Logged In!</p>}
         </Route>
 
-        <Route exact = {true} path="/register">
-        <p>Register</p>
+        <Route exact={true} path="/register">
+          <p>Register</p>
         </Route>
 
-        <Route exact = {true} path="/appointments">
+        <Route exact={true} path="/appointments">
           <p>Appointments</p>
         </Route>
       </div>
     </Router>
   );
 }
-
-export default App;
