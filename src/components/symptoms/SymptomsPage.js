@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import SymptomList from "./SymptomList";
-import Diagnosis from "../diagnosis/diagnosis";
 import "./SymptomsPage.css";
 
 export default function SymptomsPage(props) {
