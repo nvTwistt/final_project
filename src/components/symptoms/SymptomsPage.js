@@ -1,10 +1,9 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import SymptomList from "./SymptomList";
 import "./SymptomsPage.css";
 
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
-  console.log("*******symptomList", symptomList);
 
   const editSymptoms = (index, bodyPart, subLocation, symptom) => {
     let newSymptomList = symptomList;
@@ -23,8 +22,9 @@ export default function SymptomsPage(props) {
     setSymptomList(newSymptomList);
   };
 
-  const getDiagnosis = () => {
+  const getDiagnosis = (symptomList) => {
     console.log("SEND SYMPTOMS TO API");
+    console.log("SYMPTOMS =>", symptomList);
   };
 
   const addToSymptomList = () => {
@@ -43,7 +43,10 @@ export default function SymptomsPage(props) {
 
   return (
     <form className="symptom-form">
-      <div className="diagnosis-button" onClick={() => getDiagnosis()}>
+      <div
+        className="diagnosis-button"
+        onClick={() => getDiagnosis(symptomList)}
+      >
         Get Diagnosis
       </div>
       <SymptomList
