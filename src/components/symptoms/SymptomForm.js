@@ -7,19 +7,61 @@ export default function SymptomForm(props) {
   //need to get symptoms for each body part from API
   //for now will hard code
   const [state, setState] = useState({
-    bodyPart: "legs",
-    subLocation: "ankles",
-    symptom: "swollen",
+    bodyPart: "Abdomen, pelvis & buttocks",
+    subLocation: "Abdomen",
+    symptom: "Abdominal pain",
   });
   console.log("State Changed:", state);
 
   const bodyLocations = require('../../components/helpers/selectors')
+  const bodyObj = require('../../backend/symptoms')
 
-  const items = bodyLocations.bodyPartKeys.map(function(item){
+  const bodyPartitems = bodyLocations.bodyPartKeys.map(function(item){
     return <option value={item}>{item}</option>
   })
-  
+  console.log("testing", state.bodyPart);
 
+  const subLocationItems = () =>{
+    //const bodySubLocation = bodyLocations.bodyPartNames;
+    const subLocationResult = bodyLocations.bodyPartNames[state.bodyPart];
+    console.log("test: ", subLocationResult[1]);
+    return subLocationResult;
+  }
+  
+  const bodyPartSubLocation = subLocationItems();
+  const subLocationKeys = Object.keys(bodyPartSubLocation[1]);
+  // console.log("sub: ", bodyPartSubLocation);
+  const SubLocationItems = subLocationKeys.map(function(item){
+    
+    return <option value={item}>{item}</option>
+  })
+  const symptomItems = () => {
+    const accessBodyLocationObject = bodyLocations.bodyPartNames[state.bodyPart][1];
+    const accessSubLocationValues = accessBodyLocationObject[state.subLocation];
+    return accessSubLocationValues;
+  }
+  const sublocationValue = symptomItems();
+  console.log("location: ", bodyPartSubLocation[0])
+  console.log("SublocationValue: ", sublocationValue);
+  const locationID = bodyPartSubLocation[0];
+  const symptoms = bodyObj.body[locationID][sublocationValue]
+  const symptomKeyFinder = (value) => {
+    if (value) {
+      const symptomKeys = Object.keys(value).map(function(item){
+        return <option value={item}>{item}</option>
+      })
+      return symptomKeys
+    }
+    else {
+      return <option value="pending">Select Sublocation</option>
+    }
+  }
+  
+  
+  // const symptomKeys = Object.keys(symptoms).map(function(item){
+  //   return <option value={item}>{item}</option>
+  // })
+  console.log("please work! :", symptoms);
   return (
     
     <li className="symptom-item">
@@ -37,7 +79,7 @@ export default function SymptomForm(props) {
             props.onChange(e.target.value, null, null);
           }}
         >
-          {items}
+          {bodyPartitems}
         </select>
       </label>
       <label>
@@ -54,8 +96,9 @@ export default function SymptomForm(props) {
             props.onChange(null, e.target.value, null);
           }}
         >
-          <option value="ankles">ankles</option>
-          <option value="wrist">wrist</option>
+          {SubLocationItems}
+          {/* <option value="ankles">ankles</option>
+          <option value="wrist">wrist</option> */}
         </select>
       </label>
       <label>
@@ -72,8 +115,9 @@ export default function SymptomForm(props) {
             props.onChange(null, null, e.target.value);
           }}
         >
-          <option value="swollen">swollen</option>
-          <option value="bruised">bruised</option>
+          {symptomKeyFinder(symptoms)}
+          {/* <option value="swollen">swollen</option>
+          <option value="bruised">bruised</option> */}
         </select>
       </label>
       <span className="delete-symptom-button">

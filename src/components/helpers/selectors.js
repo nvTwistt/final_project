@@ -7,7 +7,7 @@ const bodyParts = require('../../backend/symptoms')
 const bodyPartNames = bodyParts.bodyLocations
 // console.log(bodyPartNames)
 const bodyPartKeys=Object.keys(bodyPartNames)
-console.log(bodyPartKeys)
+//console.log(bodyPartKeys)
 
 
 
@@ -22,7 +22,7 @@ console.log(bodyPartKeys)
 //   console.log(returnString);
 // }
 
-module.exports = {bodyPartKeys};
+module.exports = {bodyPartKeys, bodyPartNames};
 
 
 // //get subLocations for given body location from API
