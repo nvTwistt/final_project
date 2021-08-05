@@ -6,8 +6,6 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import "./SymptomList.css";
 
 export default function SymptomList(props) {
-  
-
   return (
     <section className="symptoms-list">
       <div className="add-symptom-button">
@@ -18,9 +16,10 @@ export default function SymptomList(props) {
         {props.symptomList.map((list, index) => {
           return (
             <SymptomForm
-              id={list.id}
               index={index}
-              onChange={(symptom)=>props.editSymptoms(index, symptom)}
+              onChange={(bodyPart, subLocation, symptom) =>
+                props.editSymptoms(index, bodyPart, subLocation, symptom)
+              }
               delSymptom={props.deleteFromSymptomsList}
             />
           );
