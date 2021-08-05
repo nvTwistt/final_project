@@ -20,7 +20,7 @@ export default function App(props) {
 
         <Route exact={true} path="/patients/login">
         {!auth && <Login />}
-          {auth && <p>Logged In!</p>}
+        {auth && <p>Logged In!</p>}
         </Route>
 
         <Route exact={true} path="/doctors/login">
