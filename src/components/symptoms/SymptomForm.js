@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./SymptomForm.css";
-// import "components/style.css";
 
 export default function SymptomForm(props) {
   //need to get symptoms for each body part from API
