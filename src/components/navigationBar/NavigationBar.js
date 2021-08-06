@@ -17,7 +17,7 @@ export default function NavigationBar(props) {
             <Link to={"/appointmets"}>My Appointments</Link>{" "}
           </li>
         )}
-        {auth && <li><Logout /></li>}
+        {auth && <li><Logout/></li>}
 
         {!auth && (
           <li>

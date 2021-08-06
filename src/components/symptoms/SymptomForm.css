@@ -2,11 +2,22 @@
 .symptom-item {
   margin: 0.5rem;
   text-align: center;
+  height: 2rem;
+}
+
+.symptom-item label {
+  margin: 0.5rem;
+  width:max-content;
+
+}
+
+.symptom-item label select {
+  width: 10rem;
+  margin-left: 0.5rem;
 }
 
 .delete-symptom-button {
   color: rgb(189, 131, 131);
-  align-self: center;
 }
 
 .delete-symptom-button :hover {
