@@ -16,11 +16,14 @@ export default function SymptomForm(props) {
   const bodyLocations = require('../../components/helpers/selectors');
   const bodyObj = require('../../backend/symptoms');
   const diagnoseUser = require('../../apiRequests/diagnose');
+  const diagnosisResponse = require('../helpers/resFormat');
+  //function for mapping the names of body parts to creating an item
   const bodyPartitems = bodyLocations.bodyPartKeys.map(function(item){
     return <option value={item}>{item}</option>
   })
   console.log("testing", state.bodyPart);
 
+  //function that finds the sublocation and returns the id's of corresponding parts
   const subLocationItems = () =>{
     //const bodySubLocation = bodyLocations.bodyPartNames;
     const subLocationResult = bodyLocations.bodyPartNames[state.bodyPart];
@@ -28,12 +31,17 @@ export default function SymptomForm(props) {
     return subLocationResult;
   }
   
+  //get the subitems such as foot. ankle from legs
   const bodyPartSubLocation = subLocationItems();
+  //get the object of all sublocation body parts and get its keys
   const subLocationKeys = Object.keys(bodyPartSubLocation[1]);
-  // console.log("sub: ", bodyPartSubLocation);
+  //function maps the keys to options in the dropdown menu
   const SubLocationItems = subLocationKeys.map(function(item){
     return <option value={item}>{item}</option>
   })
+
+  //function gets treverses through the body object to get the symptoms correlating to its sublocation
+  //returns the symptoms key
   const symptomItems = () => {
     const accessBodyLocationObject = bodyLocations.bodyPartNames[state.bodyPart][1];
     const accessSubLocationValues = accessBodyLocationObject[state.subLocation];
@@ -46,6 +54,11 @@ export default function SymptomForm(props) {
   // BODY PART ID
   const locationID = bodyPartSubLocation[0];
   const symptoms = bodyObj.body[locationID][sublocationValue]
+  /**
+   * 
+   * @param {gets the keys for the symptoms} value 
+   * @returns 
+   */
   const symptomKeyFinder = (value) => {
     if (value) {
       const symptomKeys = Object.keys(value).map(function(item){
@@ -57,7 +70,7 @@ export default function SymptomForm(props) {
       return <option value="pending">Select Sublocation</option>
     }
   }
-  
+    //function takes in the body object and gets the symptomID 
    const symptomID = (bodyObject) => {
     console.log("new state symptoms: ", state.symptom);
     // returns list of the body part id and an obj of its sub body parts
@@ -66,7 +79,7 @@ export default function SymptomForm(props) {
     const locationID = bodyPartSubLocation[0];
     // returns the sublocation ID 
     const sublocationValue = symptomItems();
-    console.log("value: ",locationID, sublocationValue);
+    console.log("keys for body object: ",locationID, sublocationValue);
     if (sublocationValue !== undefined && locationID) {
       const symptomObj = bodyObject.body[locationID][sublocationValue]; //obj
       const symptomIDValue = symptomObj[state.symptom];
@@ -78,12 +91,11 @@ export default function SymptomForm(props) {
    //console.log("body obj", bodyObject.body[16][36] )
   }
   const getSymptomID = symptomID(bodyObj);
-  console.log("This is the ID: ", getSymptomID);
-  // console.log("yes: ", getDiagnosis)
-  //const url = diagnoseUser.getDiagnosis(getSymptomID)
-  // const getDiagnosis = diagnoseUser.generic_api_call(getSymptomID);
+  console.log("Symptom ID: ", getSymptomID);
+  //call the api with the symptoms ID and it returns the response.
   diagnoseUser.generic_api_call(getSymptomID).then(response => {
-    console.log('-----', response)
+    const diagnosisReport = diagnosisResponse.formatter(response)
+    console.log('-----', diagnosisReport);
   })
   // console.log("lets get it: ");
   const findKeyByValue = function (object, value){
@@ -93,13 +105,6 @@ export default function SymptomForm(props) {
       }
     }
   }
-  //console.log(diagnoseUser[`getDiagnosis(${44})`]);
-
-
-  // const symptomKeys = Object.keys(symptoms).map(function(item){
-  //   return <option value={item}>{item}</option>
-  // })
-  //console.log("please work! :", symptoms);
   return (
     
     <li className="symptom-item">
