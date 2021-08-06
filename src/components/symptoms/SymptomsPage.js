@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SymptomList from "./SymptomList";
 import "./SymptomsPage.css";
+import axios from 'axios'
 
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
@@ -9,13 +10,10 @@ export default function SymptomsPage(props) {
     let newSymptomList = symptomList;
     if (bodyPart) {
       newSymptomList[index]["bodyPart"] = bodyPart;
-      //add code to dynamically change subLocations and symptoms when body part changes
-      const part = bodyPart //arms and shoulder 
     }
 
     if (subLocation) {
       newSymptomList[index]["subLocation"] = subLocation;
-      //add code to dynamically symptoms when sublocation changes
     }
 
     if (symptom) {
