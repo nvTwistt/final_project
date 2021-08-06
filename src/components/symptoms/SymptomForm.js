@@ -32,7 +32,6 @@ export default function SymptomForm(props) {
   const subLocationKeys = Object.keys(bodyPartSubLocation[1]);
   // console.log("sub: ", bodyPartSubLocation);
   const SubLocationItems = subLocationKeys.map(function(item){
-    
     return <option value={item}>{item}</option>
   })
   const symptomItems = () => {
@@ -70,7 +69,11 @@ export default function SymptomForm(props) {
     console.log("value: ",locationID, sublocationValue);
     if (sublocationValue !== undefined && locationID) {
       const symptomObj = bodyObject.body[locationID][sublocationValue]; //obj
-      return symptomObj[state.symptom][0];
+      const symptomIDValue = symptomObj[state.symptom];
+      if (symptomIDValue) {
+        return symptomIDValue[0];
+      }
+      
     }
    //console.log("body obj", bodyObject.body[16][36] )
   }
@@ -122,6 +125,7 @@ export default function SymptomForm(props) {
             props.onChange(null, e.target.value, null);
           }}
         >
+          <option value= {null}>Select an option</option>
           {SubLocationItems}
           {/* <option value="ankles">ankles</option>
           <option value="wrist">wrist</option> */}
@@ -141,6 +145,7 @@ export default function SymptomForm(props) {
             props.onChange(null, null, e.target.value);
           }}
         >
+          <option value= {null}>Select an option</option>
           {symptomKeyFinder(symptoms)}
           {/* <option value="swollen">swollen</option>
           <option value="bruised">bruised</option> */}
