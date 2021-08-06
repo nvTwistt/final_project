@@ -6,15 +6,9 @@ import "./SideBar.css";
 
 export function SideBar(props) {
   return (
-    <nav className="side-bar">
-      <ul>
-        <li>
-          <Link to={"/"}>Symptoms</Link>
-        </li>
-        <li>
-          <Link to={"/"}>Appointments</Link>
-        </li>
-      </ul>
-    </nav>
+    <div className="side-bar">
+      <Link to={"/"}>Get New Diagnosis</Link>
+      <Link to={"/appointments"}>My Appointments</Link>
+    </div>
   );
 }

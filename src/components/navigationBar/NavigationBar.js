@@ -12,7 +12,12 @@ export default function NavigationBar(props) {
       <Link to={"/"}>Diagnose.It</Link>
       <ul>
         {auth && <li>{`Logged in as ${user.name}`}</li>}
-        {auth && <Logout />}
+        {auth && (
+          <li>
+            <Link to={"/appointmets"}>My Appointments</Link>{" "}
+          </li>
+        )}
+        {auth && <li><Logout /></li>}
 
         {!auth && (
           <li>
