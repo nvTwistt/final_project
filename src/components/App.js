@@ -13,7 +13,6 @@ export default function App(props) {
     <Router>
       <div className="App">
         <NavigationBar />
-
         <Route exact={true} path="/">
           <SymptomsPage />
         </Route>
@@ -30,10 +29,6 @@ export default function App(props) {
 
         <Route exact={true} path="/register">
           <p>Register</p>
-        </Route>
-
-        <Route exact={true} path="/">
-        {auth && <p>Appointments Option available when logged in</p>}
         </Route>
       </div>
     </Router>

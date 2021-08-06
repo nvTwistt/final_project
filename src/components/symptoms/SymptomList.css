@@ -8,7 +8,8 @@
 }
 
 .symptoms-list {
-  display: flexbox;
+  display: flex;
+  flex-direction: column;
   align-self: center;
   text-align: center;
 }
