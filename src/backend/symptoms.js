@@ -99,4 +99,4 @@ const body = {
 
 module.exports = {bodyLocations,body}
 // 16 abdomen
-console.log(body[15][33]);
+//console.log(body[15][33]);

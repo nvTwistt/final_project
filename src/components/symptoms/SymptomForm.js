@@ -13,9 +13,9 @@ export default function SymptomForm(props) {
   });
   console.log("State Changed:", state);
 
-  const bodyLocations = require('../../components/helpers/selectors')
-  const bodyObj = require('../../backend/symptoms')
-
+  const bodyLocations = require('../../components/helpers/selectors');
+  const bodyObj = require('../../backend/symptoms');
+  const diagnoseUser = require('../../apiRequests/diagnose');
   const bodyPartitems = bodyLocations.bodyPartKeys.map(function(item){
     return <option value={item}>{item}</option>
   })
@@ -58,7 +58,7 @@ export default function SymptomForm(props) {
     }
   }
   
-  const symptomID = (bodyObject) => {
+   const symptomID = (bodyObject) => {
     console.log("new state symptoms: ", state.symptom);
     // returns list of the body part id and an obj of its sub body parts
     // example) [16, {arm: 5}]
@@ -79,6 +79,13 @@ export default function SymptomForm(props) {
   }
   const getSymptomID = symptomID(bodyObj);
   console.log("This is the ID: ", getSymptomID);
+  // console.log("yes: ", getDiagnosis)
+  //const url = diagnoseUser.getDiagnosis(getSymptomID)
+  // const getDiagnosis = diagnoseUser.generic_api_call(getSymptomID);
+  diagnoseUser.generic_api_call(getSymptomID).then(response => {
+    console.log('-----', response)
+  })
+  // console.log("lets get it: ");
   const findKeyByValue = function (object, value){
     for(const key in object){
       if(object[key] === value){
@@ -86,6 +93,8 @@ export default function SymptomForm(props) {
       }
     }
   }
+  //console.log(diagnoseUser[`getDiagnosis(${44})`]);
+
 
   // const symptomKeys = Object.keys(symptoms).map(function(item){
   //   return <option value={item}>{item}</option>
