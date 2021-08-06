@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SymptomList from "./SymptomList";
 import "./SymptomsPage.css";
-import axios from 'axios'
+import { Link } from "react-router-dom";
 
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
@@ -23,10 +23,6 @@ export default function SymptomsPage(props) {
     setSymptomList(newSymptomList);
   };
 
-  const getDiagnosis = (symptomList) => {
-    console.log("SEND SYMPTOMS TO API");
-    console.log("SYMPTOMS =>", symptomList);
-  };
 
   const addToSymptomList = () => {
     symptomList.push({
@@ -42,15 +38,14 @@ export default function SymptomsPage(props) {
     setSymptomList([...symptomList]);
   };
 
-
   return (
     <form className="symptom-form">
-      <div
+      <Link
         className="diagnosis-button"
-        onClick={() => getDiagnosis(symptomList)}
+        to={{ pathname: "/diagnosis", state: { symptoms: symptomList} }}
       >
         Get Diagnosis
-      </div>
+      </Link>
       <SymptomList
         editSymptoms={editSymptoms}
         symptomList={symptomList}
