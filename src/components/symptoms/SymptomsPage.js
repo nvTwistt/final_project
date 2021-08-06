@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SymptomList from "./SymptomList";
 import "./SymptomsPage.css";
+import axios from 'axios'
 
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
@@ -40,6 +41,7 @@ export default function SymptomsPage(props) {
     symptomList.splice(index, 1);
     setSymptomList([...symptomList]);
   };
+
 
   return (
     <form className="symptom-form">

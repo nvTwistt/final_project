@@ -1,0 +1,13 @@
+INSERT INTO specializations (name) VALUES ('General Practice');
+INSERT INTO specializations (name) VALUES ('Ophthalmology');
+INSERT INTO specializations (name) VALUES ('Allergology');
+INSERT INTO specializations (name) VALUES ('Dermatology');
+INSERT INTO specializations (name) VALUES ('Neurology');
+INSERT INTO specializations (name) VALUES ('Psychiatry');
+INSERT INTO specializations (name) VALUES ('Cardiology');
+INSERT INTO specializations (name) VALUES ('Orthopedics');
+INSERT INTO specializations (name) VALUES ('Internal medicine');
+INSERT INTO specializations (name) VALUES ('Surgery');
+INSERT INTO specializations (name) VALUES ('Otolaryngology');
+INSERT INTO specializations (name) VALUES ('Endocrinology');
+INSERT INTO specializations (name) VALUES ('Rheumatology');

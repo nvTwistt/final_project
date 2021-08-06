@@ -6,14 +6,7 @@ const legSymptoms = require('./body-location-symptoms/legs');
 const skinJointsSymptoms = require('./body-location-symptoms/skin-joints-general')
 
 ///////////////// body locations
-const bodyLocations = {
-  "Abdomen, pelvis & buttocks": 16,
-  "Arms & shoulder": 7,
-  "Chest & back": 15,
-  "Head, throat & neck": 6,
-  Legs: 10,
-  "Skin, joints & general": 17,
-};
+
 //body location///////
 const abdomen_pelvis_buttocks = {
   Abdomen: 36,
@@ -22,6 +15,7 @@ const abdomen_pelvis_buttocks = {
   "Hips & hip join": 39,
   Pelvis: 37,
 };
+
 const arms_shoulder = {
   "Arms general": 48,
   Finger: 30,
@@ -53,7 +47,15 @@ const skin_joints_general = {
   Skin: 36,
 };
 ///
-
+const bodyLocations = {
+  "Abdomen, pelvis & buttocks": [16, abdomen_pelvis_buttocks],
+  "Arms & shoulder": [7, arms_shoulder],
+  "Chest & back": [15, chest_back],
+  "Head, throat & neck": [6, head_throat_neck],
+  Legs: [10,legs],
+  "Skin, joints & general": [17,skin_joints_general],
+};
+//console.log("body location: ", bodyLocations['Abdomen, pelvis & buttocks']);
 ///////////////// body object
 const body = {
   16: {
@@ -94,3 +96,7 @@ const body = {
     46: skinJointsSymptoms.skin
   },
 };
+
+module.exports = {bodyLocations,body}
+// 16 abdomen
+console.log(body[15][33]);

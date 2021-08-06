@@ -1,63 +1,51 @@
 const symptoms = 
 [
   {
-    "ID": 10,
-    "Name": "Abdominal pain",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      16,
-      36
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      " Stomach ache"
-    ]
-  },
-  {
-    "ID": 44,
-    "Name": "Nausea",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      6,
-      22,
-      15,
-      31,
-      16,
-      36,
-      17,
-      47
-    ],
-    "ProfName": "",
-    "Synonyms": []
-  },
-  {
-    "ID": 45,
-    "Name": "Heartburn",
+    "ID": 15,
+    "Name": "Cough",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
       6,
       24,
+      25,
       15,
-      31,
-      16,
-      36
+      31
     ],
     "ProfName": "",
     "Synonyms": [
-      "Pyrosis"
+      "Wet cough",
+      "Productive cough"
     ]
   },
   {
-    "ID": 48,
-    "Name": "Bloated feeling in the stomach",
+    "ID": 35,
+    "Name": "Lip swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      16,
-      36
+      6,
+      25
     ],
     "ProfName": "",
     "Synonyms": [
-      "Feeling full"
+      "Angiooedema",
+      "Angioedema",
+      "Quincke's edema",
+      "Swollen lip"
+    ]
+  },
+  {
+    "ID": 40,
+    "Name": "Increased thirst",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      24,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Polydipsia",
+      "Chronic thirst"
     ]
   },
   {
@@ -73,22 +61,6 @@ const symptoms =
     "ProfName": "",
     "Synonyms": [
       "Binge eating"
-    ]
-  },
-  {
-    "ID": 50,
-    "Name": "Diarrhea",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      16,
-      36,
-      40
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Diarrhoea",
-      "Loose stool",
-      "Watery stool"
     ]
   },
   {
@@ -110,15 +82,83 @@ const symptoms =
     ]
   },
   {
-    "ID": 92,
-    "Name": "Early satiety",
+    "ID": 62,
+    "Name": "Formation of blisters on a skin area",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      16,
-      36
+      6,
+      25,
+      17,
+      46
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Vesicle",
+      "Formation of blisters on a place of the skin",
+      "Formation of blisters on an area of the skin",
+      "Formation of blisters on an area of skin",
+      "Blisters"
+    ]
+  },
+  {
+    "ID": 64,
+    "Name": "Sputum",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      15,
+      6,
+      31,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Phlegm"
+    ]
+  },
+  {
+    "ID": 93,
+    "Name": "Difficulty in swallowing",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      24,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Dysphagia",
+      "Difficulties in swallowing"
+    ]
+  },
+  {
+    "ID": 97,
+    "Name": "Mouth ulcers",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      25
     ],
     "ProfName": "",
     "Synonyms": []
+  },
+  {
+    "ID": 98,
+    "Name": "Difficulty in speaking",
+    "HasRedFlag": true,
+    "HealthSymptomLocationIDs": [
+      6,
+      25,
+      24
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Difficulty speaking",
+      "Difficulty talking",
+      "Trouble speaking",
+      "Trouble talking",
+      "Dysarthria",
+      "Trouble with speech"
+    ]
   },
   {
     "ID": 101,
@@ -136,6 +176,36 @@ const symptoms =
     ]
   },
   {
+    "ID": 122,
+    "Name": "Hiccups",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      24,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Singultus"
+    ]
+  },
+  {
+    "ID": 126,
+    "Name": "Difficulty in finding words",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      22,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Word-finding disorder",
+      "Anomia",
+      "Amnesic aphasia"
+    ]
+  },
+  {
     "ID": 131,
     "Name": "Increased appetite",
     "HasRedFlag": false,
@@ -149,6 +219,35 @@ const symptoms =
     "ProfName": "",
     "Synonyms": [
       "Increase in hunger"
+    ]
+  },
+  {
+    "ID": 133,
+    "Name": "Night cough",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      24,
+      25,
+      15,
+      31
+    ],
+    "ProfName": "",
+    "Synonyms": []
+  },
+  {
+    "ID": 135,
+    "Name": "Mouth pain",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Mouth burning",
+      "Pain in mouth",
+      "Burning in mouth"
     ]
   },
   {
@@ -171,33 +270,6 @@ const symptoms =
     ]
   },
   {
-    "ID": 154,
-    "Name": "Flatulence",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      16,
-      36
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Wind"
-    ]
-  },
-  {
-    "ID": 179,
-    "Name": "Stomach burning",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      16,
-      36
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Burning abdominal pain",
-      "Burning stomach ache"
-    ]
-  },
-  {
     "ID": 181,
     "Name": "Vomiting blood",
     "HasRedFlag": true,
@@ -211,90 +283,196 @@ const symptoms =
     "Synonyms": []
   },
   {
-    "ID": 188,
-    "Name": "Abdominal guarding",
+    "ID": 203,
+    "Name": "Pain on swallowing",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      16,
-      36
+      6,
+      24,
+      25
     ],
     "ProfName": "",
     "Synonyms": [
-      "Hard belly",
-      "Tension of abdominal wall muscles"
+      "Painful swallowing"
     ]
   },
   {
-    "ID": 191,
-    "Name": "Rebound tenderness",
+    "ID": 204,
+    "Name": "Increased salivation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      16,
-      36
+      6,
+      25
     ],
-    "ProfName": "Blumberg sign",
-    "Synonyms": [
-      "Blumberg sign"
-    ]
+    "ProfName": "",
+    "Synonyms": []
   },
   {
-    "ID": 192,
-    "Name": "Bulging abdominal wall",
+    "ID": 205,
+    "Name": "Lockjaw",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      16,
-      36
+      6,
+      25
     ],
     "ProfName": "",
     "Synonyms": [
-      "Abdomen deformity",
-      "Stomach deformity",
-      "Stomach bump"
+      "Limited mouth opening",
+      "Trismus",
+      "Difficulty opening mouth"
     ]
   },
   {
-    "ID": 223,
-    "Name": "Abdominal pain associated with menstruation",
-    "HasRedFlag": false,
+    "ID": 233,
+    "Name": "Bloody cough",
+    "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
-      16,
-      36
+      15,
+      31,
+      6,
+      25
     ],
     "ProfName": "",
     "Synonyms": [
-      "Painful menstruation"
+      "Bloody sputum",
+      "Coughing up blood",
+      "Hemoptysis"
     ]
   },
   {
-    "ID": 284,
-    "Name": "Bleeding from vagina",
+    "ID": 243,
+    "Name": "Tic",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      16,
-      36,
-      38
+      6,
+      22,
+      23,
+      25
     ],
     "ProfName": "",
     "Synonyms": [
-      "Vaginal bleeding"
+      "Twitch"
     ]
   },
   {
-    "ID": 989,
-    "Name": "Distended abdomen",
+    "ID": 272,
+    "Name": "Dry mouth",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
-      16,
-      36
+      6,
+      25
     ],
     "ProfName": "",
     "Synonyms": [
-      "Distended stomach",
-      "Abdominal distension",
-      "Stomach bloating"
+      "Xerostomia"
     ]
+  },
+  {
+    "ID": 286,
+    "Name": "Pain when chewing",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      23,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Jaw claudication"
+    ]
+  },
+  {
+    "ID": 970,
+    "Name": "Facial swelling",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      23,
+      25,
+      22
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Swollen face",
+      "Face swelling",
+      "Big face"
+    ]
+  },
+  {
+    "ID": 973,
+    "Name": "Itching in the mouth or throat",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Itch in the mouth or throat",
+      "Pruritus"
+    ]
+  },
+  {
+    "ID": 977,
+    "Name": "Tongue swelling",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Swollen tongue"
+    ]
+  },
+  {
+    "ID": 980,
+    "Name": "Tongue burning",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Burning tongue"
+    ]
+  },
+  {
+    "ID": 991,
+    "Name": "Blue colored skin",
+    "HasRedFlag": true,
+    "HealthSymptomLocationIDs": [
+      6,
+      25,
+      7,
+      30,
+      17,
+      46
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Blue colored lips",
+      "Blue colored nails",
+      "Blue colored fingertips",
+      "Cyanosis",
+      "Bluish discoloration of the skin",
+      "Bluish skin",
+      "Blue skin"
+    ]
+  },
+  {
+    "ID": 1008,
+    "Name": "Toothache",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": []
   }
-]
+];
 ////////
 //object format
 ////////
