@@ -2,6 +2,7 @@ import "./App.css";
 import SymptomsPage from "./symptoms/SymptomsPage";
 import NavigationBar from "./navigationBar/NavigationBar";
 import Login from "./login/Login";
+import Diagnosis from "./diagnosis/diagnosis"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useContext } from "react";
 import { authContext } from "./login/AuthProvider";
@@ -29,6 +30,10 @@ export default function App(props) {
 
         <Route exact={true} path="/register">
           <p>Register</p>
+        </Route>
+
+        <Route exact={true} path="/diagnosis">
+          <Diagnosis/>
         </Route>
       </div>
     </Router>
