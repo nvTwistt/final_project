@@ -5,6 +5,7 @@ import Login from "./login/Login";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useContext } from "react";
 import { authContext } from "./login/AuthProvider";
+import { SideBar } from "./SideBar/SideBar";
 
 export default function App(props) {
   const { auth } = useContext(authContext);
@@ -13,7 +14,7 @@ export default function App(props) {
     <Router>
       <div className="App">
         <NavigationBar />
-
+        <SideBar/>
         <Route exact={true} path="/">
           <SymptomsPage />
         </Route>
