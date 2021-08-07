@@ -41,7 +41,13 @@ export default function SymptomsPage(props) {
 
   return (
     <form className="symptom-form">
-      <Link onClick={() => setCurrentState('diagnosis')}
+      <Link
+        onClick = {(e)=>{
+          if (!symptomList.bodyPart || !symptomList.bodyPart ||!symptomList.bodyPart){
+            e.preventDefault()
+            alert("Please select a body location, sub-location, and symptom!")
+          }
+        }}
         className="diagnosis-button"
         to={{ pathname: "/diagnosis", state: { symptoms: symptomList } }}
       >
