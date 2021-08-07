@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import SymptomList from "./SymptomList";
 import "./SymptomsPage.css";
 import { Link } from "react-router-dom";
-
+import Diagnosis from "../diagnosis/diagnosis";
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
-
+  const [currentState, setCurrentState] = useState("symptom");
   const editSymptoms = (index, bodyPart, subLocation, symptom) => {
     let newSymptomList = symptomList;
     if (bodyPart) {
@@ -38,11 +38,12 @@ export default function SymptomsPage(props) {
     setSymptomList([...symptomList]);
   };
 
+
   return (
     <form className="symptom-form">
-      <Link
+      <Link onClick={() => setCurrentState('diagnosis')}
         className="diagnosis-button"
-        to={{ pathname: "/diagnosis", state: { symptoms: symptomList} }}
+        to={{ pathname: "/diagnosis", state: { symptoms: symptomList } }}
       >
         Get Diagnosis
       </Link>
@@ -53,5 +54,5 @@ export default function SymptomsPage(props) {
         deleteFromSymptomsList={deleteFromSymptomsList}
       />
     </form>
-  );
+   );
 }

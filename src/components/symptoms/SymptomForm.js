@@ -17,6 +17,7 @@ export default function SymptomForm(props) {
   const bodyObj = require('../../backend/symptoms');
   const diagnoseUser = require('../../apiRequests/diagnose');
   const diagnosisResponse = require('../helpers/resFormat');
+  //const submitDiagnosis = require('../diagnosis/diagnosis')
   //function for mapping the names of body parts to creating an item
   const bodyPartitems = bodyLocations.bodyPartKeys.map(function(item){
     return <option value={item}>{item}</option>
@@ -27,7 +28,7 @@ export default function SymptomForm(props) {
   const subLocationItems = () =>{
     //const bodySubLocation = bodyLocations.bodyPartNames;
     const subLocationResult = bodyLocations.bodyPartNames[state.bodyPart];
-    console.log("test: ", subLocationResult[1]);
+    //console.log("test: ", subLocationResult[1]);
     return subLocationResult;
   }
   
@@ -83,6 +84,7 @@ export default function SymptomForm(props) {
     if (sublocationValue !== undefined && locationID) {
       const symptomObj = bodyObject.body[locationID][sublocationValue]; //obj
       const symptomIDValue = symptomObj[state.symptom];
+      console.log("id value: ", symptomIDValue);
       if (symptomIDValue) {
         return symptomIDValue[0];
       }
@@ -93,10 +95,12 @@ export default function SymptomForm(props) {
   const getSymptomID = symptomID(bodyObj);
   console.log("Symptom ID: ", getSymptomID);
   //call the api with the symptoms ID and it returns the response.
-  diagnoseUser.generic_api_call(getSymptomID).then(response => {
-    const diagnosisReport = diagnosisResponse.formatter(response)
-    console.log('-----', diagnosisReport);
-  })
+  // diagnoseUser.generic_api_call(getSymptomID).then(response => {
+  //   const diagnosisReport = diagnosisResponse.formatter(response)
+  //   // console.log("does this work: ",submitDiagnosis.default(diagnosisReport));
+  //   console.log('-----', diagnosisReport);
+  // })
+
   // console.log("lets get it: ");
   const findKeyByValue = function (object, value){
     for(const key in object){
