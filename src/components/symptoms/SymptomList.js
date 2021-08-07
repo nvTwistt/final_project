@@ -20,6 +20,7 @@ export default function SymptomList(props) {
                 props.editSymptoms(index, bodyPart, subLocation, symptom)
               }
               delSymptom={props.deleteFromSymptomsList}
+              finalSymptomIDArray = {props.finalSymptomIDArray}
             />
           );
         })}

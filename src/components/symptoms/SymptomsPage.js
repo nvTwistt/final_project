@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Diagnosis from "../diagnosis/diagnosis";
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
-  const [currentState, setCurrentState] = useState("symptom");
+  const [symptomID, setSymptomID] = useState([]);
   const editSymptoms = (index, bodyPart, subLocation, symptom) => {
     let newSymptomList = symptomList;
     if (bodyPart) {
@@ -23,6 +23,12 @@ export default function SymptomsPage(props) {
     setSymptomList(newSymptomList);
   };
 
+ const finalSymptomIDArray = (array) => {
+   console.log("FUNCTION TRIGGERED WITH ARRAY", array)
+   setSymptomID(array);
+   console.log("state: ", symptomID);
+ }
+
 
   const addToSymptomList = () => {
     symptomList.push({
@@ -38,18 +44,16 @@ export default function SymptomsPage(props) {
     setSymptomList([...symptomList]);
   };
 
+  console.log("this is the current state: ", symptomList);
 
   return (
     <form className="symptom-form">
       <Link
         onClick = {(e)=>{
-          if (!symptomList.bodyPart || !symptomList.bodyPart ||!symptomList.bodyPart){
-            e.preventDefault()
-            alert("Please select a body location, sub-location, and symptom!")
-          }
+         
         }}
         className="diagnosis-button"
-        to={{ pathname: "/diagnosis", state: { symptoms: symptomList } }}
+        to={{ pathname: "/diagnosis", state: { symptoms: symptomList, diagnosis: symptomID } }}
       >
         Get Diagnosis
       </Link>
@@ -58,6 +62,7 @@ export default function SymptomsPage(props) {
         symptomList={symptomList}
         addToSymptomList={addToSymptomList}
         deleteFromSymptomsList={deleteFromSymptomsList}
+        finalSymptomIDArray = {finalSymptomIDArray}
       />
     </form>
    );

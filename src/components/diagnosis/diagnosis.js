@@ -1,102 +1,56 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 const diagnoseUser = require('../../apiRequests/diagnose');
-
+const diagnosisResponse = require('../helpers/resFormat');
 
 export default function Diagnosis(props) {
   let data = useLocation();
-  let [state, setState] = useState({
-    diagnosis: "sprained ankle", specialist: "general"
-  })
+  let [diagnosis, setDiagnois] = useState("")
+  let [list, setList] = useState([]);
+  console.log("DATA is here",data)
+
   useEffect(() => {
-    
-  })
-  // const getSymptomsArray = (data) => {
-  //   let symptomsArray = [];
-  //   for (let ele of data) {
-  //     symptomsArray.push(ele.symptom);
-  //   }
-  //   console.log(symptomsArray);
-  //   return symptomsArray;
-  // };
-
-  
-
-  const getDiagnosis = async () => {
-    const bodyLocations  = require('../../components/helpers/selectors')
-    const bodyObj = require('../../backend/symptoms');
-    const diagnosisResponse = require('../helpers/resFormat');
-    console.log("SEND SYMPTOMS TO API");
-
-    console.log("HARD CODED - This is where the api call will go")
-    
-    const stateDataObject = data.state.symptoms[0];
-    console.log("object: ", stateDataObject);
-    const getBodyPart = stateDataObject['bodyPart'];
-
-    const bodyTraversal = (areaID, subAreaID) => {
-      const humanBody = bodyObj.body;
-      if (areaID && subAreaID) {
-        const symptomObj =humanBody[areaID][subAreaID]; //obj
-        const currentSymptoms = stateDataObject['symptom']
-        const localSymptomID = symptomObj[currentSymptoms];
-        console.log("symptom id: ", localSymptomID);
-        return localSymptomID;
+    let mounted = true;
+    diagnoseUser.generic_api_call(data.state.diagnosis).then(response => {
+      const diagnosisReport = diagnosisResponse.formatter(response)
+      // console.log("does this work: ",submitDiagnosis.default(diagnosisReport));
+      console.log('-----', diagnosisReport);
+      const reportLength = diagnosisReport.length;
+      let results = []
+      for (const reports of diagnosisReport) {
+        if (results.length > 2) {
+          break;
+        }
+        let unformattedName = reports.name
+        let diagnosisName = unformattedName.toLowerCase();
+        let accuracyNumber = reports.accuracy;
+        let specializtionList = reports.specializations;
+        let diagnosisList = [diagnosisName, accuracyNumber, specializtionList];
+        results.push(diagnosisList);
       }
-    }
-
-    const getSublocationID = (object) => {
-      const getSubLocation = stateDataObject['subLocation'];
-      console.log("sublocation: ", getSubLocation);
-      //is sublocation id
-      const getSublocationValue = object[getSubLocation];
-      console.log("sublocation result: ", getSublocationValue);
-      return getSublocationValue
-    }
-
-    const subLocationItems = () =>{
-      //const bodySubLocation = bodyLocations.bodyPartNames;
-      const subLocationResult = bodyLocations.bodyPartNames;
-      console.log("body part: ",getBodyPart);
-      const bodyPartValue = subLocationResult[getBodyPart];
-      const bodyPartIDNumber = bodyPartValue[0]
-      console.log("test: ", bodyPartValue);
-      const subLocationObject = bodyPartValue[1]
-      const locationValue = getSublocationID(subLocationObject);
-      console.log("location value: ", locationValue);
-      const symptomValue = bodyTraversal(bodyPartIDNumber, locationValue)
-      //console.log("ids: ",symptomID)
-      //const diagnosisReport = diagnosisResponse.formatter(symptomID);
-      //console.log("formatted report: ", diagnosisReport);
-      return symptomValue;
-    }
-    
-    //get the subitems such as foot. ankle from legs
-    //const bodyPartSubLocation = subLocationItems();
-    const symptomValues = subLocationItems()
-    const symptomID = symptomValues[0];
-    const symptomFlag = symptomValues[1];
-    let response = await diagnoseUser.generic_api_call(symptomID);
-    console.log("response from await: ", response);
-    if (response) {
-      const diagnosisReport = diagnosisResponse.formatter(response);
-      return diagnosisReport
-      console.log("the formatted report: ", diagnosisReport)
-    }
-    // let returnObj = {diagnosis: "sprained ankle", specialist: "general"}
-    // return returnObj
-  };
+      // let firstReport = diagnosisReport[0];
+      // let disease = firstReport.specializations
+      // [ 0: {accuracy: "", name: "", specializations: []}]
+      // [[accuracy, name, []]]
+      if(mounted) {
+        setList(results)
+      }
+    })
+    return () => mounted = false;
+  }, []);
+  
+  console.log("list to format: ", list);
+  const diagnosisData = list.map(diagnosis => {
+     return <h2>
+      {`There is a ${diagnosis[1]}% chance that you have a ${diagnosis[0]}.
+       Click BOOK NOW to see a doctor that specializes in ${diagnosis[2]}`}
+      <button>BOOK NOW</button>
+      </h2>
+  })
   
   return (
     <div className="diagnosis">
-      <h2>
-      {/* {`Symptoms: ${getSymptomsArray(
-        data.state.symptoms 
-      )}`} */}
-        </h2>
-        <h2>{`Diagnosis: ${getDiagnosis()[0]}`}</h2>
-        <h2>{`Specialist: ${getDiagnosis().specialist}`}</h2>
-        <button>BOOK NOW</button>
+    {diagnosisData}
     </div>
 
   );

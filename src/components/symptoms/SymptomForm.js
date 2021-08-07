@@ -13,10 +13,10 @@ export default function SymptomForm(props) {
   });
   console.log("State Changed:", state);
 
+
+
   const bodyLocations = require('../../components/helpers/selectors');
   const bodyObj = require('../../backend/symptoms');
-  const diagnoseUser = require('../../apiRequests/diagnose');
-  const diagnosisResponse = require('../helpers/resFormat');
   //const submitDiagnosis = require('../diagnosis/diagnosis')
   //function for mapping the names of body parts to creating an item
   const bodyPartitems = bodyLocations.bodyPartKeys.map(function(item){
@@ -93,6 +93,8 @@ export default function SymptomForm(props) {
    //console.log("body obj", bodyObject.body[16][36] )
   }
   const getSymptomID = symptomID(bodyObj);
+  
+  props.finalSymptomIDArray(getSymptomID)
   console.log("Symptom ID: ", getSymptomID);
   //call the api with the symptoms ID and it returns the response.
   // diagnoseUser.generic_api_call(getSymptomID).then(response => {
@@ -162,6 +164,7 @@ export default function SymptomForm(props) {
             setState({ ...state, symptom });
             props.onChange(null, null, e.target.value);
           }}
+
         >
           <option value= {null}>Select an option</option>
           {symptomKeyFinder(symptoms)}
