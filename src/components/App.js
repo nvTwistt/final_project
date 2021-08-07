@@ -6,6 +6,7 @@ import Diagnosis from "./diagnosis/diagnosis"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useContext } from "react";
 import { authContext } from "./login/AuthProvider";
+import AppointmentRequest from "./appointments/appointmentRequest";
 
 export default function App(props) {
   const { auth } = useContext(authContext);
@@ -35,6 +36,9 @@ export default function App(props) {
         <Route exact={true} path="/diagnosis">
           <Diagnosis/>
         </Route>
+        <Route exact={true} path="/appointments">
+        <AppointmentRequest/>
+      </Route>
       </div>
     </Router>
   );
