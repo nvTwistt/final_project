@@ -1,13 +1,23 @@
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import AppointmentRequest from "../appointments/appointmentRequest"
 const diagnoseUser = require('../../apiRequests/diagnose');
 const diagnosisResponse = require('../helpers/resFormat');
+
+
 
 export default function Diagnosis(props) {
   let data = useLocation();
   let [diagnosis, setDiagnois] = useState("")
   let [list, setList] = useState([]);
+  let [selectDiagnosis, setSelectDiagnosis] = useState({})
+  const [showForm, setShowForm] = useState(false)
   console.log("DATA is here",data)
+
+  const showFormFunc = ()=> {
+    setShowForm(!showForm);
+  }
 
   useEffect(() => {
     let mounted = true;
@@ -28,10 +38,6 @@ export default function Diagnosis(props) {
         let diagnosisList = [diagnosisName, accuracyNumber, specializtionList];
         results.push(diagnosisList);
       }
-      // let firstReport = diagnosisReport[0];
-      // let disease = firstReport.specializations
-      // [ 0: {accuracy: "", name: "", specializations: []}]
-      // [[accuracy, name, []]]
       if(mounted) {
         setList(results)
       }
@@ -44,7 +50,7 @@ export default function Diagnosis(props) {
      return <h2>
       {`There is a ${diagnosis[1]}% chance that you have a ${diagnosis[0]}.
        Click BOOK NOW to see a doctor that specializes in ${diagnosis[2]}`}
-      <button>BOOK NOW</button>
+      <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>BOOK NOW</Link>
       </h2>
   })
   
@@ -52,6 +58,5 @@ export default function Diagnosis(props) {
     <div className="diagnosis">
     {diagnosisData}
     </div>
-
   );
 }
