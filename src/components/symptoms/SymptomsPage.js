@@ -70,6 +70,7 @@ export default function SymptomsPage(props) {
         onClick = {(e)=>{
           if(hasNullValues(symptomList)){
             e.preventDefault()
+            alert("Ensure all fields in form have been selected")
           }
         }}
         className="diagnosis-button"
