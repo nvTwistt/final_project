@@ -32,12 +32,30 @@ export default function SymptomsPage(props) {
 
   const addToSymptomList = () => {
     symptomList.push({
-      bodyPart: "legs",
-      subLocation: "ankles",
-      symptom: "swollen",
+      bodyPart: null,
+      subLocation: null,
+      symptom: null,
     });
     setSymptomList([...symptomList]);
   };
+
+  const hasNullValues = (symptomList)=>{
+    //edge case no item has been added yet
+    if (symptomList.length ===0){
+      return true
+    }
+    //otherwise loop through array of object until null value is found. Otherwise return true
+    for (let ele of symptomList){
+      console.log(ele)
+      for (let key in ele){
+        if (ele[key]===null){
+          console.log('null key', key)
+          return true
+        }
+      }
+    }
+    return false
+  }
 
   const deleteFromSymptomsList = (index) => {
     symptomList.splice(index, 1);
@@ -50,7 +68,9 @@ export default function SymptomsPage(props) {
     <form className="symptom-form">
       <Link
         onClick = {(e)=>{
-         
+          if(hasNullValues(symptomList)){
+            e.preventDefault()
+          }
         }}
         className="diagnosis-button"
         to={{ pathname: "/diagnosis", state: { symptoms: symptomList, diagnosis: symptomID } }}
