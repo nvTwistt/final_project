@@ -39,15 +39,23 @@ app.post('/message', function(req, res) {
       break;
     }
     console.log("Getting key", payload);
-
+    let information = payload['info'];
+    let diagnosis = payload['diagnosis'];
+    console.log("information ", information);
+    console.log("diagnosis ", diagnosis);
+    let introduction = `Hello ${information.name}.`
+    let bodyMessaage = ` Your results show that there is a ${diagnosis.accuracy}% chance that you have a ${diagnosis.symptom}.`
+    let reccomendation = ` Based off the diagnosis, we are reccomending you to see a doctor who specializes in ${diagnosis.specialization_1} or ${diagnosis.specialization_2}`
+    let completeMessage = introduction + bodyMessaage + reccomendation;
+    console.log("message: ",completeMessage);
     // { '{"name":"ndnbvedbfv","food":"jbnwbnej","id":3}': '' }
 
     // console.log("res 1: ", res);
 
     client.messages.create({
-      to: '+19028183737',
+      to: `${information.to}`,
       from: '+18722405819',
-      body: `I need this to work! ${payload.name} is a/an ${payload.food}`
+      body: completeMessage
     })
 
     // .then(message => 

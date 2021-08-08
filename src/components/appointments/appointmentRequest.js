@@ -46,24 +46,32 @@ export default function AppointmentRequest(props) {
         e.preventDefault()
         console.log("value: ", values)
         console.log("diagnosis: ", data.state.diagnosis)
-        let result = [
+        let specialists = data.state.diagnosis[2];
+        let diagnosisInformation= {
+            'symptom': data.state.diagnosis[0],
+            'accuracy': data.state.diagnosis[1],
+        }
+        const stringFormatter = (value) => {
+            return value.toLowerCase()
+        }
+        if (specialists.length == 2) {
+            diagnosisInformation['specialization_1'] = stringFormatter(specialists[0]);
+            diagnosisInformation['specialization_2'] = stringFormatter(specialists[1]);
+        } else if (specialists.length == 1){
+            diagnosisInformation['specialization_1'] = stringFormatter(specialists[0]);
+        }
+        let result = 
             {
                 'name': values.name,
                 'to': values.to
-            },
-            {
-                'diagnosis_1': data.state.diagnosis
             }
-        ]
-        storeState.diagnosis.push(result);
-        console.log(storeState.diagnosis)
         const blob = new Blob([result], {
             type: 'application/json'
         })
         let body =  "test this";
         let bodyFormData = new FormData();
         bodyFormData.append("document", blob);
-        let payload = { name: 'ndnbvedbfv', food: 'jbnwbnej', id: 3}
+        let payload = { info: result, diagnosis: diagnosisInformation}
         // application/x-www-form-urlencoded
         axios.post('http://localhost:3001/message', JSON.stringify(payload), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(result => {
             console.log('result===<<', result)
