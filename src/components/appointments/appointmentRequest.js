@@ -1,21 +1,21 @@
+
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-
+const axios = require('axios')
 
 export default function AppointmentRequest(props) {
     const data = useLocation();
-    const axios = require('axios')
     const [values, setValue] = useState({
-            to: '',
-            name: ''
+        to: '',
+        name: ''
     });
-    
+
     const set = (name) => {
-        return ({target: {value}}) => {
-            setValue((oldValue) => ({...oldValue, [name]: value}));
+        return ({ target: { value } }) => {
+            setValue((oldValue) => ({ ...oldValue, [name]: value }));
         }
     }
-
+    const storeState = require('./data');
     // let appointmentForm = React.createRef();
     // const sendMessage = async () => {
     //     const response = await axios.post('localhost:3001/message')
@@ -46,45 +46,74 @@ export default function AppointmentRequest(props) {
         e.preventDefault()
         console.log("value: ", values)
         console.log("diagnosis: ", data.state.diagnosis)
+        let result = [
+            {
+                'name': values.name,
+                'to': values.to
+            },
+            {
+                'diagnosis_1': data.state.diagnosis
+            }
+        ]
+        storeState.diagnosis.push(result);
+        console.log(storeState.diagnosis)
+        const blob = new Blob([result], {
+            type: 'application/json'
+        })
+        let body =  "test this";
+        let bodyFormData = new FormData();
+        bodyFormData.append("document", blob);
+        let payload = { name: 'ndnbvedbfv', food: 'jbnwbnej', id: 3}
+        // application/x-www-form-urlencoded
+        axios.post('http://localhost:3001/message', JSON.stringify(payload), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(result => {
+            console.log('result===<<', result)
+        }).catch(err => {
+            console.log('err:: ', err)
+        })
+
         try {
-            axios.post(
-                "http://localhost:3001/message"
-                // {
-                //     body: data.state.diagnosis,
-                //     info: values
-                // }
-            ).then(response => {
-                console.log(response)
-            } 
-            )
+            // { 'content-type': 'application/x-www-form-urlencoded'
+          
+            // axios({
+            //     method: 'post',
+            //     url: "http://localhost:3001/message",
+            //     data: { name: 'ndnbvedbfv', food: 'jbnwbnej', id: 3},
+            //     headers: {
+            //         'Content-Type': "text/json"
+            //     }
+            //     })
+                // .then(response => {
+                //     console.log(response)
+                // });
         } catch (e) {
             console.log("error", e);
         }
     }
-  return (
-          <form  onSubmit={onSubmit}>
-              <div>
+
+    return (
+        <form onSubmit={onSubmit}>
+            <div>
                 Number:
                 <input type='text' name="to" value={values.to} onChange={onHandleTo}></input>
                 Name:
                 <input type='text' name="name" value={values.name} onChange={onHandleName}></input>
-              </div>
-              <button type="submit" >Submit</button>
-          </form>
-          
-//     <div>
-//       <div>
-//       {/* <p>Make your appointment for {props.diagnosis[0]}</p> */}
-//     </div>  
-//    <label>
-//     Name:
-//     <input type="text" name="name" />
-//     </label>
-//     <label>
-//     Number:
-//     <input type="text" name="number" />
-//     </label>
-//     <button >Submit</button>
-//     </div>
-  );
+            </div>
+            <button type="submit" >Submit</button>
+        </form>
+
+        //     <div>
+        //       <div>
+        //       {/* <p>Make your appointment for {props.diagnosis[0]}</p> */}
+        //     </div>  
+        //    <label>
+        //     Name:
+        //     <input type="text" name="name" />
+        //     </label>
+        //     <label>
+        //     Number:
+        //     <input type="text" name="number" />
+        //     </label>
+        //     <button >Submit</button>
+        //     </div>
+    );
 }

@@ -2,51 +2,58 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const accountSid = 'ACa366addfe88f2c04a900b85cc3023421';
-const authToken = '9a267e9afd2880ac8404d79b93b50727';
+const authToken = '607b693df9f55d5edd684b50d032928c';
 const twilio = require("twilio");
 //const client = require('twilio')('ACa366addfe88f2c04a900b85cc3023421', '9a267e9afd2880ac8404d79b93b50727');
 const client = new twilio(accountSid, authToken);
-
-
+const data = require('./data');
+const cors = require('cors');
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(pino);
+app.use(function (req,res, next){
+  res.header("Access-Control-Allow-origin", "https://www.twilio.com")
+  res.setHeader('Access-Control-Allow-Methods', "GET,POST,OPTIONS")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, data, Accept")
+  next();
+})
 
 app.get('/', (req, res) => {
     res.status(200).send({
         message: "running",
     });
-//   const name = req.query.name || 'World';
-//   res.setHeader('Content-Type', 'application/json');
-//   res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 });
 
-// app.get("/sendcode", (req, res) => {
-//     client.verify
-//     .services(YOUR_SERVICE_ID)
-//     .verifications.create({
-//         to: `+15874378939`,
-//         channel: "sms",
-//     })
-//     .then((data) => {
-//         res.status(200).send({
-//             message: "verified",
-//             phonenumber: `+15874378939`,
-//             data,
-//         })
-//     })
-// })
-
-app.post('/message', function(req, res, next) {
+app.post('/message', function(req, res) {
     // Use the REST client to send a text message
-    console.log("request: ", req.body);
-    console.log("res: ", res);
+    console.log("here====>++", req.body);
+    const body = JSON.parse(JSON.stringify(req.body)); 
+    console.log("here====>++", typeof body);
+    let payload;
+
+    console.log("Body here00000>>>", body);
+    for (const items in body) {
+      console.log("items: ", items);
+      payload = JSON.parse(items)
+      break;
+    }
+    console.log("Getting key", payload);
+
+    // { '{"name":"ndnbvedbfv","food":"jbnwbnej","id":3}': '' }
+
+    // console.log("res 1: ", res);
+
     client.messages.create({
       to: '+19028183737',
       from: '+18722405819',
-      body: `Request for appointment to diagnose`
-    }).then(message => console.log(message)
-    );
+      body: `I need this to work! ${payload.name} is a/an ${payload.food}`
+    })
+
+    // .then(message => 
+    //   console.log(message)
+    // );
+    return res.status(200).send({ message: 'SMS sent..' })
   });
 
 // client.messages
