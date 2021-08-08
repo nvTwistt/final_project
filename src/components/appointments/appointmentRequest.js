@@ -6,17 +6,17 @@ export default function AppointmentRequest(props) {
     const data = useLocation();
     const axios = require('axios')
     const [values, setValue] = useState({
-        message: {
             to: '',
-            body: ''
-        }
+            name: ''
     });
-    console.log(data.state)
+    
     const set = (name) => {
         return ({target: {value}}) => {
             setValue((oldValue) => ({...oldValue, [name]: value}));
         }
     }
+
+    // let appointmentForm = React.createRef();
     // const sendMessage = async () => {
     //     const response = await axios.post('localhost:3001/message')
     //     .then(x => {
@@ -27,33 +27,49 @@ export default function AppointmentRequest(props) {
     //     }
     // }
 
-    const onHandleChange = (event) => {
-        const name = event.target.getAttribute('name');
+    const onHandleTo = (event) => {
         setValue({
-            message: {...values.message,[name]: event.target.values}
+            to: event.target.value
+            //message: {to: event.target.value}
+            //message: {...values, to:event.target.value}
         })
     }
+    const onHandleName = (event) => {
+        setValue({
+            //message: {name: event.target.value}
+            to: values.to,
+            name: event.target.value
+        })
+    }
+
     const onSubmit = (e) => {
         e.preventDefault()
         console.log("value: ", values)
-        // try {
-        //     let response = axios.post(
-        //         "http://localhost:3001/message"
-        //     )
-        //     console.log(response);
-        // } catch (e) {
-        //     console.log("error", e);
-        // }
+        console.log("diagnosis: ", data.state.diagnosis)
+        try {
+            axios.post(
+                "http://localhost:3001/message"
+                // {
+                //     body: data.state.diagnosis,
+                //     info: values
+                // }
+            ).then(response => {
+                console.log(response)
+            } 
+            )
+        } catch (e) {
+            console.log("error", e);
+        }
     }
   return (
-          <form>
+          <form  onSubmit={onSubmit}>
               <div>
                 Number:
-                <input type='text' name="to" value={values.message.to} onChange={onHandleChange}></input>
+                <input type='text' name="to" value={values.to} onChange={onHandleTo}></input>
                 Name:
-                <input type='text' name="name" value={values.message.name} onChange={onHandleChange}></input>
+                <input type='text' name="name" value={values.name} onChange={onHandleName}></input>
               </div>
-              <button type="submit" onClick={onSubmit}>Submit</button>
+              <button type="submit" >Submit</button>
           </form>
           
 //     <div>

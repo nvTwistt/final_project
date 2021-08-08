@@ -39,10 +39,12 @@ app.get('/', (req, res) => {
 
 app.post('/message', function(req, res, next) {
     // Use the REST client to send a text message
+    console.log("request: ", req.body);
+    console.log("res: ", res);
     client.messages.create({
       to: '+19028183737',
       from: '+18722405819',
-      body: 'This is a good idea'
+      body: `Request for appointment to diagnose`
     }).then(message => console.log(message)
     );
   });
