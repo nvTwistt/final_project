@@ -19,11 +19,13 @@ export default function App(props) {
         </Route>
 
         <Route exact={true} path="/patients/login">
+        <h1 className="login-type">Patient Login</h1>
         {!auth && <Login />}
         {auth && <p>Logged In!</p>}
         </Route>
 
         <Route exact={true} path="/doctors/login">
+          <h1 className="login-type">Doctor Login</h1>
           {!auth && <Login />}
           {auth && <p>Logged In!</p>}
         </Route>

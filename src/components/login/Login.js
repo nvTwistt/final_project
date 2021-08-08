@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { authContext } from './AuthProvider';
+import "./Login.css"
 
 
 export default function Login() {
