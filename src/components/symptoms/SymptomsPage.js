@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import SymptomList from "./SymptomList";
 import "./SymptomsPage.css";
 import { Link } from "react-router-dom";
-import Diagnosis from "../diagnosis/diagnosis";
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
   const [symptomID, setSymptomID] = useState([]);
