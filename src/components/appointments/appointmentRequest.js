@@ -6,7 +6,10 @@ export default function AppointmentRequest(props) {
     const data = useLocation();
     const axios = require('axios')
     const [values, setValue] = useState({
-        name: ""
+        message: {
+            to: '',
+            body: ''
+        }
     });
     console.log(data.state)
     const set = (name) => {
@@ -23,19 +26,36 @@ export default function AppointmentRequest(props) {
     //         throw new Error('message failed');
     //     }
     // }
-    const onSubmit = () => {
-        try {
-            let response = axios.post(
-                "http://localhost:3001/message"
-            )
-            console.log(response);
-        } catch (e) {
-            console.log("error", e);
-        }
+
+    const onHandleChange = (event) => {
+        const name = event.target.getAttribute('name');
+        setValue({
+            message: {...values.message,[name]: event.target.values}
+        })
+    }
+    const onSubmit = (e) => {
+        e.preventDefault()
+        console.log("value: ", values)
+        // try {
+        //     let response = axios.post(
+        //         "http://localhost:3001/message"
+        //     )
+        //     console.log(response);
+        // } catch (e) {
+        //     console.log("error", e);
+        // }
     }
   return (
+          <form>
+              <div>
+                Number:
+                <input type='text' name="to" value={values.message.to} onChange={onHandleChange}></input>
+                Name:
+                <input type='text' name="name" value={values.message.name} onChange={onHandleChange}></input>
+              </div>
+              <button type="submit" onClick={onSubmit}>Submit</button>
+          </form>
           
-          <button type="submit" onClick={onSubmit}>Submit</button>
 //     <div>
 //       <div>
 //       {/* <p>Make your appointment for {props.diagnosis[0]}</p> */}
