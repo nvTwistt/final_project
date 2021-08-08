@@ -46,10 +46,8 @@ export default function SymptomsPage(props) {
     }
     //otherwise loop through array of object until null value is found. Otherwise return true
     for (let ele of symptomList){
-      console.log(ele)
       for (let key in ele){
         if (ele[key]===null){
-          console.log('null key', key)
           return true
         }
       }
