@@ -6,6 +6,7 @@ import "./SymptomForm.css";
 export default function SymptomForm(props) {
   //need to get symptoms for each body part from API
   //for now will hard code
+  console.log("props for symptom form", props.defaultValue)
   const [state, setState] = useState({
     bodyPart: "Abdomen, pelvis & buttocks",
     subLocation: "Abdomen",
@@ -116,7 +117,7 @@ export default function SymptomForm(props) {
     <li className="symptom-item">
       <label>
         Body Part:
-        <select
+        <div
           value={state.bodyPart}
           onChange={(e) => {
             let bodyPart = e.target.value;
@@ -128,8 +129,9 @@ export default function SymptomForm(props) {
             props.onChange(e.target.value, null, null);
           }}
         >
-          {bodyPartitems}
-        </select>
+          {props.defaultValue}
+          {/* {bodyPartitems} */}
+        </div>
       </label>
       <label>
         Sublocation:

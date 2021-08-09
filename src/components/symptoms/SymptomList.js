@@ -3,14 +3,13 @@ import SymptomForm from "./SymptomForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import "./SymptomList.css";
-
+import humanBody from "./human_body.png"
+import HumanBodyButton from "./HumanBodyButton"
 export default function SymptomList(props) {
+  console.log("symptomList props", props.symptomList)
   return (
     <section className="symptoms-list">
-      <div className="add-symptom-button">
-        Add Symptom
-        <FontAwesomeIcon onClick={props.addToSymptomList} icon={faPlusCircle} />
-      </div>
+      <HumanBodyButton addToSymptomList={props.addToSymptomList} />
       <ul>
         {props.symptomList.map((list, index) => {
           return (
@@ -19,6 +18,7 @@ export default function SymptomList(props) {
               onChange={(bodyPart, subLocation, symptom) =>
                 props.editSymptoms(index, bodyPart, subLocation, symptom)
               }
+              defaultValue = {props.symptomList[index]["bodyPart"]}
               delSymptom={props.deleteFromSymptomsList}
               finalSymptomIDArray = {props.finalSymptomIDArray}
             />
