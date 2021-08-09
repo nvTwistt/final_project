@@ -1,18 +1,33 @@
 /* symptom items */
+.symptom-container {
+  width: 50%;
+  position: absolute;
+  right: 2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin-right:2rem;
+}
+
 .symptom-item {
   margin: 0.5rem;
   text-align: center;
   height: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  height: 5rem;
+  width:100%;
+  border: black solid;
+  overflow: hidden
 }
 
 .symptom-item label {
   margin: 0.5rem;
-  width:max-content;
-
 }
 
 .symptom-item label select {
-  width: 10rem;
   margin-left: 0.5rem;
 }
 
