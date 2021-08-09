@@ -108,7 +108,7 @@ export default function SymptomForm(props) {
     
     <li className="symptom-item">
       <label>
-        Body Part:
+        <strong>Location:</strong>
         <div
           value={state.bodyPart}
           onChange={(e) => {
@@ -126,7 +126,8 @@ export default function SymptomForm(props) {
         </div>
       </label>
       <label>
-        Sublocation:
+        <strong>Sub-Location:</strong>
+        <br/>
         <select
           value={state.subLocation}
           onChange={(e) => {
@@ -146,7 +147,8 @@ export default function SymptomForm(props) {
         </select>
       </label>
       <label>
-        Symptom:
+        <strong>Symptom:</strong>
+        <br/>
         <select
           value={state.symptom}
           onChange={(e) => {
@@ -166,12 +168,12 @@ export default function SymptomForm(props) {
           <option value="bruised">bruised</option> */}
         </select>
       </label>
-      <span className="delete-symptom-button">
+      <div className="delete-symptom-button">
         <FontAwesomeIcon
           onClick={() => props.delSymptom(props.index)}
           icon={faTrash}
         />
-      </span>
+      </div>
     </li>
   );
 }

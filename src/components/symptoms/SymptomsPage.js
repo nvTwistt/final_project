@@ -63,7 +63,15 @@ export default function SymptomsPage(props) {
 
   return (
     <form className="symptom-form">
-      <Link
+     
+      <SymptomList
+        editSymptoms={editSymptoms}
+        symptomList={symptomList}
+        addToSymptomList={addToSymptomList}
+        deleteFromSymptomsList={deleteFromSymptomsList}
+        finalSymptomIDArray={finalSymptomIDArray}
+      />
+       <Link
         onClick={(e) => {
           if (hasNullValues(symptomList)) {
             e.preventDefault();
@@ -78,13 +86,6 @@ export default function SymptomsPage(props) {
       >
         Get Diagnosis
       </Link>
-      <SymptomList
-        editSymptoms={editSymptoms}
-        symptomList={symptomList}
-        addToSymptomList={addToSymptomList}
-        deleteFromSymptomsList={deleteFromSymptomsList}
-        finalSymptomIDArray={finalSymptomIDArray}
-      />
     </form>
   );
 }

@@ -10,7 +10,7 @@ export default function SymptomList(props) {
   return (
     <section className="symptoms-list">
       <HumanBodyButton addToSymptomList={props.addToSymptomList} />
-      <ul>
+      <ul className="symptom-container">
         {props.symptomList.map((list, index) => {
           return (
             <SymptomForm
