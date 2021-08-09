@@ -1,7 +1,13 @@
-.symptom-form{
-  padding: 2rem;
+.symptom-container {
   display: flex;
+  flex-direction: row;
+}
+
+.symptom-form{
+  display: inline-flex;
   flex-direction: column;
+  display: inline-block;
+  width: 100%;
 }
 
 .diagnosis-button {
@@ -11,15 +17,16 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  align-self: center;
   margin: 2rem;
+  position: fixed;
+  right: 20px;
 }
 
 .diagnosis-button:hover{
   background-color:#008CBA;
 }
+
 
 
 

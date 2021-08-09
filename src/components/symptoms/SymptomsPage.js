@@ -22,37 +22,37 @@ export default function SymptomsPage(props) {
     setSymptomList(newSymptomList);
   };
 
- const finalSymptomIDArray = (array) => {
-   console.log("FUNCTION TRIGGERED WITH ARRAY", array)
-   setSymptomID(array);
-   console.log("state: ", symptomID);
- }
+  const finalSymptomIDArray = (array) => {
+    console.log("FUNCTION TRIGGERED WITH ARRAY", array);
+    setSymptomID(array);
+    console.log("state: ", symptomID);
+  };
 
-
-  const addToSymptomList = () => {
+  function addToSymptomList(bodyPartClicked){
+    console.log("BODY PART CLICKED", symptomList);
     symptomList.push({
-      bodyPart: null,
+      bodyPart: bodyPartClicked,
       subLocation: null,
       symptom: null,
     });
     setSymptomList([...symptomList]);
   };
 
-  const hasNullValues = (symptomList)=>{
+  const hasNullValues = (symptomList) => {
     //edge case no item has been added yet
-    if (symptomList.length ===0){
-      return true
+    if (symptomList.length === 0) {
+      return true;
     }
     //otherwise loop through array of object until null value is found. Otherwise return true
-    for (let ele of symptomList){
-      for (let key in ele){
-        if (ele[key]===null){
-          return true
+    for (let ele of symptomList) {
+      for (let key in ele) {
+        if (ele[key] === null) {
+          return true;
         }
       }
     }
-    return false
-  }
+    return false;
+  };
 
   const deleteFromSymptomsList = (index) => {
     symptomList.splice(index, 1);
@@ -64,14 +64,17 @@ export default function SymptomsPage(props) {
   return (
     <form className="symptom-form">
       <Link
-        onClick = {(e)=>{
-          if(hasNullValues(symptomList)){
-            e.preventDefault()
-            alert("Ensure all fields in form have been selected")
+        onClick={(e) => {
+          if (hasNullValues(symptomList)) {
+            e.preventDefault();
+            alert("Ensure all fields in form have been selected");
           }
         }}
         className="diagnosis-button"
-        to={{ pathname: "/diagnosis", state: { symptoms: symptomList, diagnosis: symptomID } }}
+        to={{
+          pathname: "/diagnosis",
+          state: { symptoms: symptomList, diagnosis: symptomID },
+        }}
       >
         Get Diagnosis
       </Link>
@@ -80,8 +83,8 @@ export default function SymptomsPage(props) {
         symptomList={symptomList}
         addToSymptomList={addToSymptomList}
         deleteFromSymptomsList={deleteFromSymptomsList}
-        finalSymptomIDArray = {finalSymptomIDArray}
+        finalSymptomIDArray={finalSymptomIDArray}
       />
     </form>
-   );
+  );
 }

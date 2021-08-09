@@ -1,6 +1,7 @@
 .add-symptom-button {
   color: rgb(80, 175, 80);
   align-self: center;
+  display: flex;
 }
 
 .add-symptom-button:hover {
@@ -12,4 +13,8 @@
   flex-direction: column;
   align-self: center;
   text-align: center;
+}
+
+.human-body-button img{
+  width:20rem;
 }
