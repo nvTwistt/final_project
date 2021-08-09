@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
-const data = require('./data');
+const data = require('../../secrets/data');
 const accountSid = data.twilio_sid;
 const authToken = data.twilio_token;
 const twilio = require("twilio");
@@ -53,14 +53,13 @@ app.post('/message', function(req, res) {
     // console.log("res 1: ", res);
 
     client.messages.create({
-      to: `+15874378939`,
+      to: `${information.to}`,
       from: '+18722405819',
-      body: completeMessage
+      body: `${completeMessage}`
     })
-
-    // .then(message => 
-    //   console.log(message)
-    // );
+    .then(message => 
+      console.log(message)
+    );
     return res.status(200).send({ message: 'SMS sent..' })
   });
 

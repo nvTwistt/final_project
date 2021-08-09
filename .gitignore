@@ -24,4 +24,5 @@ yarn-error.log*
 node_modules
 
 .env
-/src/components/appointments/data.js
+/secrets/data.js 
+data.js 

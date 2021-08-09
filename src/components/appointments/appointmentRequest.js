@@ -15,7 +15,6 @@ export default function AppointmentRequest(props) {
             setValue((oldValue) => ({ ...oldValue, [name]: value }));
         }
     }
-    const storeState = require('./data');
     // let appointmentForm = React.createRef();
     // const sendMessage = async () => {
     //     const response = await axios.post('localhost:3001/message')
