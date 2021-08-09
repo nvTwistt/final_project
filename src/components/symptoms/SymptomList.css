@@ -1,20 +1,66 @@
+.human-body-button {
+  margin-top: 3rem;
+  background-image: url("./human_body.png");
+  background-repeat: no-repeat;
+  background-size: 600px;
+  height: 95%; /* Full-height: remove this if you want "auto" height */
+  width: 600px; /* Set the width of the sidebar */
+  min-width: 600px;
+  max-width:600px;
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x:inherit; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
 .add-symptom-button {
-  color: rgb(80, 175, 80);
+  color: rgba(32, 178, 170);
+  border: none;
   align-self: center;
-  display: flex;
+  position: absolute;
+  font-size: large;
+  overflow:hidden;
 }
 
 .add-symptom-button:hover {
-  color: green;
+ color:#008cba;
 }
+
+.add-symptom-button.abd{
+  left: 16em;
+  top: 20em;
+}
+
+.add-symptom-button.arm{
+  left: 11em;
+  top: 8em;
+}
+
+.add-symptom-button.chest{
+  left: 17em;
+  top: 10em;
+}
+
+.add-symptom-button.legs{
+  left: 12em;
+  top: 27em;
+}
+
+.add-symptom-button.head{
+  left: 16em;
+}
+
+.add-symptom-button.gen{
+  left: 20em;
+  top: 35em;
+}
+
 
 .symptoms-list {
+  margin-top: 3rem;
   display: flex;
-  flex-direction: column;
   align-self: center;
   text-align: center;
-}
-
-.human-body-button img{
-  width:20rem;
 }
