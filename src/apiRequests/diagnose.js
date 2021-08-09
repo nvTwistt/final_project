@@ -1,18 +1,22 @@
 const axios = require('axios')
 const auth = require('../secrets/data')
+/**
+ * function takes in an ID and sets the request URL
+ * @param {} id 
+ * @returns 
+ */
 const getDiagnosis = function (id) { 
     var baseUrl = 'https://sandbox-healthservice.priaid.ch/';
     var diagnosisUrl = baseUrl + 'diagnosis';
-    const token = auth.api_medic_auth;
-    // var extraArgs = 'token=' + token + '&language=' + 'en-gb' + '&format=' + 'json'
-
     var url = diagnosisUrl + '?symptoms=' + `[${id}]` + '&gender=' + 'male' + '&year_of_birth=' + 1988;
-    console.log(url);
     return url;
-    //generic_api_call(url)
 }
 
-
+/**
+ * function will construct the url needed for the request and will call the api
+ * @param {*} id 
+ * @returns 
+ */
 function generic_api_call(id) {
     let url = getDiagnosis(id)
     console.log("this is the url: ", url);
@@ -22,11 +26,10 @@ function generic_api_call(id) {
     console.log('url====> ', url)
     return axios.get(url)
         .then(function (response) {
-            console.log("We are here::: ",response.data);
             return response.data
         })
         .catch(function (error) {
-            console.log("There is an error");
+            console.log("There is an error", error);
         });
 }
 module.exports = {getDiagnosis, generic_api_call}

@@ -55,8 +55,10 @@ const bodyLocations = {
   Legs: [10,legs],
   "Skin, joints & general": [17,skin_joints_general],
 };
-//console.log("body location: ", bodyLocations['Abdomen, pelvis & buttocks']);
-///////////////// body object
+
+/**
+ * Body object handles the diagnosis and the symptoms
+ */
 const body = {
   16: {
     36: abdomenPelvisButtocksSymptoms.abdomen,
