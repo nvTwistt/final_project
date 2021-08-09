@@ -12,12 +12,10 @@ export default function Diagnosis(props) {
   let [diagnosis, setDiagnois] = useState("")
   let [list, setList] = useState([]);
   let [selectDiagnosis, setSelectDiagnosis] = useState({})
-  const [showForm, setShowForm] = useState(false)
-  console.log("DATA is here",data)
 
-  const showFormFunc = ()=> {
-    setShowForm(!showForm);
-  }
+
+  console.log("Gender is here",data.state.gender)
+
 
   useEffect(() => {
     let mounted = true;

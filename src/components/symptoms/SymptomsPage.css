@@ -18,6 +18,14 @@
   color:white
 }
 
+.gender-select {
+z-index: 999999;
+position: fixed;
+left: 15rem;
+top: 57rem;
+}
+
+
 
 
 
