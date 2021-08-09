@@ -33,7 +33,7 @@ export default function Diagnosis(props) {
           <Accordion.Collapse eventKey={diagnosis[0]}>
             <Card.Body>
             {`There is a ${diagnosis[1]}% chance that you have a ${diagnosis[0]}.
-        Click BOOK NOW to see a doctor that specializes in${diagnosis[2]}`}
+        Click BOOK NOW to see a doctor that specializes in${diagnosis[2]}    `}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -75,10 +75,6 @@ export default function Diagnosis(props) {
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
          <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-         <button class="btn save btn-warning">
-           <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>Book Now</Link>
-         </button>
          <div>
            <Accordion key={diagnosis[1]}>
              <Card>
@@ -89,6 +85,9 @@ export default function Diagnosis(props) {
                  <Card.Body>
                    {`There is a ${diagnosis[1]}% chance that you have a ${diagnosis[0]}.
         Click BOOK NOW to see a doctor that specializes in${diagnosis[2]}`}
+                   <button class="btn save btn-warning">
+                     <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>Book Now</Link>
+                   </button>
                  </Card.Body>
                </Accordion.Collapse>
              </Card>
