@@ -8,9 +8,9 @@ export default function SymptomForm(props) {
   //for now will hard code
   console.log("props for symptom form", props.defaultValue)
   const [state, setState] = useState({
-    bodyPart: "Abdomen, pelvis & buttocks",
-    subLocation: "Abdomen",
-    symptom: "Abdominal pain",
+    bodyPart: props.defaultValue,
+    subLocation: null,
+    symptom: null,
   });
   console.log("State Changed:", state);
 
@@ -20,21 +20,20 @@ export default function SymptomForm(props) {
   const bodyObj = require('../../backend/symptoms');
   //const submitDiagnosis = require('../diagnosis/diagnosis')
   //function for mapping the names of body parts to creating an item
-  const bodyPartitems = bodyLocations.bodyPartKeys.map(function(item){
-    return <option value={item}>{item}</option>
-  })
   console.log("testing", state.bodyPart);
 
   //function that finds the sublocation and returns the id's of corresponding parts
   const subLocationItems = () =>{
     //const bodySubLocation = bodyLocations.bodyPartNames;
+    console.log("the location: ",bodyLocations.bodyPartNames)
     const subLocationResult = bodyLocations.bodyPartNames[state.bodyPart];
-    //console.log("test: ", subLocationResult[1]);
+    console.log("test: ", subLocationResult);
     return subLocationResult;
   }
   
   //get the subitems such as foot. ankle from legs
   const bodyPartSubLocation = subLocationItems();
+  console.log("body keys: ", bodyPartSubLocation);
   //get the object of all sublocation body parts and get its keys
   const subLocationKeys = Object.keys(bodyPartSubLocation[1]);
   //function maps the keys to options in the dropdown menu
@@ -105,13 +104,6 @@ export default function SymptomForm(props) {
   // })
 
   // console.log("lets get it: ");
-  const findKeyByValue = function (object, value){
-    for(const key in object){
-      if(object[key] === value){
-        return key;
-      }
-    }
-  }
   return (
     
     <li className="symptom-item">

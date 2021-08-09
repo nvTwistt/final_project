@@ -5,21 +5,22 @@ import "./SymptomList.css";
 import humanBody from "./human_body.png";
 
 export default function SymptomList(props) {
+
   return (
     <div className="human-body-button">
-      <span className="add-symptom-button" id="Abdomen,Pelvis & Buttocks"  onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
+      <span className="add-symptom-button" id="Abdomen, pelvis & buttocks"  onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
         <FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon>
         Abdomen,Pelvis & Buttocks
       </span>
-      <span className="add-symptom-button" id="Arms & Shoulders"  onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
+      <span className="add-symptom-button" id="Arms & shoulder"  onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
         <FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon>
         Arms & Shoulders
       </span>
-      <span className="add-symptom-button" id="Chest & Back"  onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
+      <span className="add-symptom-button" id="Chest & back"  onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
         <FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon>
         Chest & Back
       </span>{" "}
-      <span className="add-symptom-button" id="Head, Throat and Neck" onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
+      <span className="add-symptom-button" id="Head, throat & neck" onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
         <FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon>
         Head, Throat and Neck
       </span>{" "}
@@ -27,7 +28,7 @@ export default function SymptomList(props) {
         <FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon>
         Legs
       </span>{" "}
-      <span className="add-symptom-button" id="Skin, Joints & General" onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
+      <span className="add-symptom-button" id="Skin, joints & general" onClick={e =>props.addToSymptomList(e.currentTarget.id)}>
         <FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon>
         Skin, Joints & General
       </span>{" "}
