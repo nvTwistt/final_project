@@ -1,5 +1,11 @@
 
-
+.diagnosis{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10em;
+  justify-content: space-between;
+  align-items: center;
+}
 button.btn.add::before {
   font-family: fontAwesome;
   content: "\f067\00a0";
@@ -22,10 +28,9 @@ button.btn.cancel::before {
 
 .main {
   display: flex;
-  margin-top: 1em;
   justify-content: center;
   width: 48em;
   align-items: center;
-  margin-left: 24em;
+  /* margin-left: 24em; */
 }
 

@@ -108,7 +108,18 @@ export default function Diagnosis(props) {
   
   return (
     <div className="diagnosis">
-    {diagnosisData}
+      <div className="info">
+        <h2>
+          Based on your symptoms these are the top recomendations
+        </h2>
+
+      </div>
+      <div class="card">
+            <div class="card-body">
+            {diagnosisData}
+            </div>
+      </div> 
+
     </div>
   );
 }
