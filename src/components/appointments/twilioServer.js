@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
-const accountSid = 'ACa366addfe88f2c04a900b85cc3023421';
-const authToken = '607b693df9f55d5edd684b50d032928c';
+const data = require('./data');
+const accountSid = data.twilio_sid;
+const authToken = data.twilio_token;
 const twilio = require("twilio");
 //const client = require('twilio')('ACa366addfe88f2c04a900b85cc3023421', '9a267e9afd2880ac8404d79b93b50727');
 const client = new twilio(accountSid, authToken);
-const data = require('./data');
+
 const cors = require('cors');
 const app = express();
 app.use(cors());
@@ -53,7 +54,7 @@ app.post('/message', function(req, res) {
     // console.log("res 1: ", res);
 
     client.messages.create({
-      to: `${information.to}`,
+      to: `+19028183737`,
       from: '+18722405819',
       body: completeMessage
     })
