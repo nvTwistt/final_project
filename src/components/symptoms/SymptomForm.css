@@ -1,12 +1,14 @@
 /* symptom items */
-.symptom-container {
-  width: 50%;
-  position: absolute;
-  right: 2rem;
-  padding: 0;
+.symptom-form {
   display: flex;
   flex-direction: column;
-  margin-right:2rem;
+}
+
+.symptom-container {
+  position: absolute;
+  right:2rem;
+  width: 50%;
+
 }
 
 .symptom-item {
