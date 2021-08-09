@@ -22,11 +22,15 @@
   position: absolute;
   font-size: large;
   overflow:hidden;
+
 }
 
+
 .add-symptom-button:hover {
+
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.4);
+
 }
 
 .add-symptom-button.abd{
