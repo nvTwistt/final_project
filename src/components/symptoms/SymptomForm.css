@@ -21,20 +21,28 @@
   justify-content: center;
   height: 5rem;
   width:100%;
+  font-size: large;
   border: black solid;
   overflow: hidden
 }
 
 .symptom-item label {
   margin: 0.5rem;
+  width:33%;
+  height: 60%;
 }
 
 .symptom-item label select {
   margin-left: 0.5rem;
+  width: 70%;
+  font-size: large;
+  text-align: center;
 }
 
 .delete-symptom-button {
   color: rgb(189, 131, 131);
+  position: relative;
+  align-self: flex-end;
 }
 
 .delete-symptom-button :hover {
