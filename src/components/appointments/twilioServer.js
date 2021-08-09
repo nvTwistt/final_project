@@ -5,7 +5,6 @@ const data = require('./data');
 const accountSid = data.twilio_sid;
 const authToken = data.twilio_token;
 const twilio = require("twilio");
-//const client = require('twilio')('ACa366addfe88f2c04a900b85cc3023421', '9a267e9afd2880ac8404d79b93b50727');
 const client = new twilio(accountSid, authToken);
 
 const cors = require('cors');
@@ -54,7 +53,7 @@ app.post('/message', function(req, res) {
     // console.log("res 1: ", res);
 
     client.messages.create({
-      to: `+19028183737`,
+      to: `+15874378939`,
       from: '+18722405819',
       body: completeMessage
     })

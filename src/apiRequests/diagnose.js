@@ -1,5 +1,5 @@
 const axios = require('axios')
-
+const auth = require('../components/appointments/data')
 const getDiagnosis = function (id) { 
     var baseUrl = 'https://sandbox-healthservice.priaid.ch/';
     var diagnosisUrl = baseUrl + 'diagnosis';
@@ -16,7 +16,7 @@ const getDiagnosis = function (id) {
 function generic_api_call(id) {
     let url = getDiagnosis(id)
     console.log("this is the url: ", url);
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im10YW1rZWVAaWNsb3VkLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiOTQ3NiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAyMS0wNy0zMCIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNjI4NDY4MTg0LCJuYmYiOjE2Mjg0NjA5ODR9.b-c_xCckzbI1i1jIAVmMuPyhehGA97hf7u_eJrFO_jQ';
+    const token = auth.api_medic_auth;
     var extraArgs = 'token=' + token + '&language=' + 'en-gb' + '&format=' + 'json'
     url += url.indexOf("?") > 0 ? "&" + extraArgs : "?" + extraArgs;
     console.log('url====> ', url)
