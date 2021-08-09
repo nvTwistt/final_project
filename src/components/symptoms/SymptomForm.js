@@ -106,7 +106,7 @@ export default function SymptomForm(props) {
   // console.log("lets get it: ");
   return (
     
-    <li className="symptom-item">
+    <div className="symptom-item">
       <label>
         <strong>Location:</strong>
         <div
@@ -174,6 +174,6 @@ export default function SymptomForm(props) {
           icon={faTrash}
         />
       </div>
-    </li>
+    </div>
   );
 }
