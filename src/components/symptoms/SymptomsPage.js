@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
   const [symptomID, setSymptomID] = useState([]);
+  const [gender, setGender]=useState(null)
   const editSymptoms = (index, bodyPart, subLocation, symptom) => {
     let newSymptomList = symptomList;
     if (bodyPart) {
@@ -23,24 +24,25 @@ export default function SymptomsPage(props) {
   };
 
   const finalSymptomIDArray = (array) => {
-    console.log("FUNCTION TRIGGERED WITH ARRAY", array);
     setSymptomID(array);
-    console.log("state: ", symptomID);
   };
 
-  function addToSymptomList(bodyPartClicked){
-    console.log("BODY PART CLICKED", symptomList);
+  function addToSymptomList(bodyPartClicked) {
     symptomList.push({
       bodyPart: bodyPartClicked,
       subLocation: null,
       symptom: null,
     });
     setSymptomList([...symptomList]);
-  };
+  }
 
   const hasNullValues = (symptomList) => {
     //edge case no item has been added yet
     if (symptomList.length === 0) {
+      return true;
+    }
+
+    if(!gender){
       return true;
     }
     //otherwise loop through array of object until null value is found. Otherwise return true
@@ -59,11 +61,11 @@ export default function SymptomsPage(props) {
     setSymptomList([...symptomList]);
   };
 
-  console.log("this is the current state: ", symptomList);
 
   return (
     <form className="symptom-form">
-     
+  
+
       <SymptomList
         editSymptoms={editSymptoms}
         symptomList={symptomList}
@@ -71,7 +73,16 @@ export default function SymptomsPage(props) {
         deleteFromSymptomsList={deleteFromSymptomsList}
         finalSymptomIDArray={finalSymptomIDArray}
       />
-       <Link
+         <div className="gender-select">
+         <label> Gender:
+        <select onChange={e =>setGender(e.target.value)}>
+        <option value={null} >Select</option>
+          <option value={"Male"} >Male</option>
+          <option value={"Female"}>Female</option>
+        </select>
+        </label>
+      </div>
+      <Link
         onClick={(e) => {
           if (hasNullValues(symptomList)) {
             e.preventDefault();
@@ -81,7 +92,7 @@ export default function SymptomsPage(props) {
         className="diagnosis-button"
         to={{
           pathname: "/diagnosis",
-          state: { symptoms: symptomList, diagnosis: symptomID },
+          state: { symptoms: symptomList, diagnosis: symptomID, gender: gender },
         }}
       >
         Get Diagnosis

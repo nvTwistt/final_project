@@ -15,12 +15,10 @@ export default function Diagnosis(props) {
   let [diagnosis, setDiagnois] = useState("")
   let [list, setList] = useState([]);
   let [selectDiagnosis, setSelectDiagnosis] = useState({})
-  const [showForm, setShowForm] = useState(false)
-  console.log("DATA is here",data)
 
-  const showFormFunc = ()=> {
-    setShowForm(!showForm);
-  }
+
+  console.log("Gender is here",data.state.gender)
+
 
   const renderAccordion = (perc, diag, c) => {
     return (
@@ -43,7 +41,7 @@ export default function Diagnosis(props) {
 
   useEffect(() => {
     let mounted = true;
-    diagnoseUser.generic_api_call(data.state.diagnosis).then(response => {
+    diagnoseUser.generic_api_call(data.state.diagnosis, data.state.gender).then(response => {
       const diagnosisReport = diagnosisResponse.formatter(response)
       // console.log("does this work: ",submitDiagnosis.default(diagnosisReport));
       console.log('-----', diagnosisReport);
