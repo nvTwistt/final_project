@@ -13,8 +13,9 @@ export default function App(props) {
 
   return (
     <Router>
-      <NavigationBar />
+    <NavigationBar />
       <div className="App">
+     
         <Route exact={true} path="/">
           <SymptomsPage />
         </Route>
@@ -22,7 +23,6 @@ export default function App(props) {
         <Route exact={true} path="/patients/login">
         <h1 className="login-type">Patient Login</h1>
         {!auth && <Login />}
-        {auth && <p>Logged In!</p>}
         </Route>
 
         <Route exact={true} path="/doctors/login">
