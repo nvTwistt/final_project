@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./diagnosis.css";
 import Button from 'react-bootstrap/Button'
-import { Accordion, Card } from "react-bootstrap";
+import { Accordion, Card, button } from "react-bootstrap";
 import AppointmentRequest from "../appointments/appointmentRequest"
 const diagnoseUser = require('../../apiRequests/diagnose');
 const diagnosisResponse = require('../helpers/resFormat');
@@ -22,24 +22,6 @@ export default function Diagnosis(props) {
     setShowForm(!showForm);
   }
 
-  const renderAccordion = (perc, diag, c) => {
-    return (
-      
-      <Accordion key={diagnosis[1]}>
-        <Card>
-          <Accordion.Toggle as={Card.Header} eventKey={diagnosis[0]}>
-            {diagnosis[0]}
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey={diagnosis[0]}>
-            <Card.Body>
-            {`There is a ${diagnosis[1]}% chance that you have a ${diagnosis[0]}.
-        Click BOOK NOW to see a doctor that specializes in${diagnosis[2]}    `}
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-      </Accordion>
-    );
-  };
 
   useEffect(() => {
     let mounted = true;
@@ -84,10 +66,13 @@ export default function Diagnosis(props) {
                <Accordion.Collapse eventKey={diagnosis[0]}>
                  <Card.Body>
                    {`There is a ${diagnosis[1]}% chance that you have a ${diagnosis[0]}.
-        Click BOOK NOW to see a doctor that specializes in${diagnosis[2]}`}
-                   <button class="btn save btn-warning">
-                     <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>Book Now</Link>
-                   </button>
+        Click BOOK NOW to see a doctor that specializes in  ${diagnosis[2]}    `}
+                   {/* <Button type="button" class="btn btn-outline-success">
+                   <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>Book Now</Link>
+                   </Button> */}
+                   <Button variant="outline-light">
+                    <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>Book Now</Link>
+                  </Button>{''}
                  </Card.Body>
                </Accordion.Collapse>
              </Card>
@@ -110,7 +95,7 @@ export default function Diagnosis(props) {
     <div className="diagnosis">
       <div className="info">
         <h2>
-          Based on your symptoms these are the top recomendations
+          Based on your symptoms these are the possible diagnosis
         </h2>
 
       </div>
