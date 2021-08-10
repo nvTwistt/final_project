@@ -5,10 +5,11 @@ const auth = require('../secrets/data')
  * @param {} id 
  * @returns 
  */
-const getDiagnosis = function (id) { 
+const getDiagnosis = function (id,gender) { 
     var baseUrl = 'https://sandbox-healthservice.priaid.ch/';
     var diagnosisUrl = baseUrl + 'diagnosis';
-    var url = diagnosisUrl + '?symptoms=' + `[${id}]` + '&gender=' + 'male' + '&year_of_birth=' + 1988;
+    let formattedGender = gender.toLowerCase();
+    var url = diagnosisUrl + '?symptoms=' + `[${id}]` + '&gender=' + `${formattedGender}` + '&year_of_birth=' + 1988;
     return url;
 }
 
@@ -17,8 +18,8 @@ const getDiagnosis = function (id) {
  * @param {*} id 
  * @returns 
  */
-function generic_api_call(id) {
-    let url = getDiagnosis(id)
+function generic_api_call(id, gender) {
+    let url = getDiagnosis(id, gender)
     console.log("this is the url: ", url);
     const token = auth.api_medic_auth;
     var extraArgs = 'token=' + token + '&language=' + 'en-gb' + '&format=' + 'json'

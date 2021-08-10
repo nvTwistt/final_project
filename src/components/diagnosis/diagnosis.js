@@ -19,7 +19,7 @@ export default function Diagnosis(props) {
 
   useEffect(() => {
     let mounted = true;
-    diagnoseUser.generic_api_call(data.state.diagnosis).then(response => {
+    diagnoseUser.generic_api_call(data.state.diagnosis, data.state.gender).then(response => {
       const diagnosisReport = diagnosisResponse.formatter(response)
       // console.log("does this work: ",submitDiagnosis.default(diagnosisReport));
       console.log('-----', diagnosisReport);
