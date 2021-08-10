@@ -8,3 +8,9 @@
   display: flexbox;
 }
 
+.diagnosis {
+  display: flex;
+  justify-content: center;
+  margin-top: 12em;
+  align-items: center;
+}

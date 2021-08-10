@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import AuthProvider from "./components/login/AuthProvider";
+import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
   <AuthProvider>

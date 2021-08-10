@@ -36,7 +36,7 @@ export default function App(props) {
         </Route>
 
         <Route exact={true} path="/diagnosis">
-          <Diagnosis/>
+          <Diagnosis className="diagnosis"/>
         </Route>
         <Route exact={true} path="/appointments">
         <AppointmentRequest/>
