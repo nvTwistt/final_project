@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import SymptomList from "./SymptomList";
 import "./SymptomsPage.css";
 import { Link } from "react-router-dom";
+import {Dropdown, DropdownButton, Modal, Button } from "react-bootstrap";
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
   const [symptomID, setSymptomID] = useState([]);
-  const [gender, setGender]=useState(null)
+  const [gender, setGender] = useState(null);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
   const editSymptoms = (index, bodyPart, subLocation, symptom) => {
     let newSymptomList = symptomList;
+
     if (bodyPart) {
       newSymptomList[index]["bodyPart"] = bodyPart;
     }
@@ -42,7 +46,7 @@ export default function SymptomsPage(props) {
       return true;
     }
 
-    if(!gender){
+    if (!gender) {
       return true;
     }
     //otherwise loop through array of object until null value is found. Otherwise return true
@@ -61,11 +65,10 @@ export default function SymptomsPage(props) {
     setSymptomList([...symptomList]);
   };
 
+  console.log("Gender", gender);
 
   return (
     <form className="symptom-form">
-  
-
       <SymptomList
         editSymptoms={editSymptoms}
         symptomList={symptomList}
@@ -73,30 +76,49 @@ export default function SymptomsPage(props) {
         deleteFromSymptomsList={deleteFromSymptomsList}
         finalSymptomIDArray={finalSymptomIDArray}
       />
-         <div className="gender-select">
-         <label> Gender:
-        <select onChange={e =>setGender(e.target.value)}>
-        <option value={null} >Select</option>
-          <option value={"Male"} >Male</option>
-          <option value={"Female"}>Female</option>
-        </select>
-        </label>
-      </div>
+
+      <DropdownButton
+        title="Select Gender"
+        variant="primary"
+        className="gender-select"
+        onSelect={(e) => setGender(e)}
+      >
+        <Dropdown.Item eventKey={"Male"}>Male</Dropdown.Item>
+        <Dropdown.Item eventKey={"Female"}>Female</Dropdown.Item>
+      </DropdownButton>
+
       <Link
         onClick={(e) => {
           if (hasNullValues(symptomList)) {
             e.preventDefault();
-            alert("Ensure all fields in form have been selected");
+            setShow(true)
           }
         }}
         className="diagnosis-button"
         to={{
           pathname: "/diagnosis",
-          state: { symptoms: symptomList, diagnosis: symptomID, gender: gender },
+          state: {
+            symptoms: symptomList,
+            diagnosis: symptomID,
+            gender: gender,
+          },
         }}
       >
         Get Diagnosis
       </Link>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header>
+          <Modal.Title>Missing Fields</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Ensure a gender has been selected, and each symptom card has been filled out completley!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Ok
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      
     </form>
   );
 }

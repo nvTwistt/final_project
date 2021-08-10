@@ -1,5 +1,5 @@
 .diagnosis-button {
-  background-color: rgba(32, 178, 170);
+  background-color: #20b2aa;
   border: none;
   color: white;
   padding-top: 15px;
@@ -22,8 +22,9 @@
 .gender-select {
 z-index: 999999;
 position: fixed;
-left: 15rem;
-top: 57rem;
+width: min-content;
+left: 14rem;
+top: 50rem;
 }
 
 

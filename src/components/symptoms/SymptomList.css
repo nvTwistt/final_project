@@ -1,5 +1,5 @@
 .human-body-button {
-  margin-top: 3rem;
+  margin-top: 4rem;
   background-image: url("./human_body.png");
   background-repeat: no-repeat;
   background-size: 600px;
@@ -11,7 +11,7 @@
   z-index: 1;
   top: 0; /* Stay at the top */
   left: 0;
-  overflow-x:inherit; /* Disable horizontal scroll */
+  overflow-x:hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
 
@@ -24,7 +24,6 @@
   overflow:hidden;
 
 }
-
 
 .add-symptom-button:hover {
 

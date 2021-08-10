@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { authContext } from "../login/AuthProvider";
+import { Button } from "react-bootstrap";
 
 
 export default function Logout(props) {
@@ -14,8 +15,8 @@ export default function Logout(props) {
   };
   
   return (
-    <button className="symptoms-list" onClick={onClick}>
+    <Button variant="primary" onClick={onClick}>
       Logout
-    </button>
+    </Button>
   );
 }
