@@ -1,9 +1,6 @@
 import React from "react";
 import SymptomForm from "./SymptomForm";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import "./SymptomList.css";
-import humanBody from "./human_body.png"
 import HumanBodyButton from "./HumanBodyButton"
 export default function SymptomList(props) {
   console.log("symptomList props", props.symptomList)

@@ -5,10 +5,11 @@ const auth = require('../secrets/data')
  * @param {} id 
  * @returns 
  */
-const getDiagnosis = function (id) { 
+const getDiagnosis = function (id,gender) { 
     var baseUrl = 'https://sandbox-healthservice.priaid.ch/';
     var diagnosisUrl = baseUrl + 'diagnosis';
-    var url = diagnosisUrl + '?symptoms=' + `[${id}]` + '&gender=' + 'male' + '&year_of_birth=' + 1988;
+    let formattedGender = gender.toLowerCase();
+    var url = diagnosisUrl + '?symptoms=' + `[${id}]` + '&gender=' + `${formattedGender}` + '&year_of_birth=' + 1988;
     return url;
 }
 
@@ -17,8 +18,8 @@ const getDiagnosis = function (id) {
  * @param {*} id 
  * @returns 
  */
-function generic_api_call(id) {
-    let url = getDiagnosis(id)
+function generic_api_call(id, gender) {
+    let url = getDiagnosis(id, gender)
     console.log("this is the url: ", url);
     const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imx1a2VAY2xpY2tzcGFjZS5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6Ijk1MDIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjEtMDgtMDQiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTYyODU1NTQyMSwibmJmIjoxNjI4NTQ4MjIxfQ.NCpCG3cPiiQ4wVx1j15029v5hAp979-1v3KVaCB3a7g';
     var extraArgs = 'token=' + token + '&language=' + 'en-gb' + '&format=' + 'json'
