@@ -53,3 +53,11 @@
   background-color:blue;
 }
 
+#form {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+
+  margin-top: 3em;
+}

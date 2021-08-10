@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./SymptomForm.css";
+import Button from 'react-bootstrap/Button'
 
 export default function SymptomForm(props) {
   //need to get symptoms for each body part from API
@@ -104,76 +105,85 @@ export default function SymptomForm(props) {
   // })
 
   // console.log("lets get it: ");
+
+ 
   return (
     
-    <div className="symptom-item">
-      <label>
-        <strong>Location:</strong>
-        <div
-          value={state.bodyPart}
-          onChange={(e) => {
-            let bodyPart = e.target.value;
-            console.log(
-              `Event on Body Part ${props.index}. Value changed to:`,
-              e.target.value
-            );
-            setState({ ...state, bodyPart });
-            props.onChange(e.target.value, null, null);
-          }}
-        >
-          {props.defaultValue}
-          {/* {bodyPartitems} */}
-        </div>
-      </label>
-      <label>
-        <strong>Sub-Location:</strong>
-        <br/>
-        <select
-          value={state.subLocation}
-          onChange={(e) => {
-            let subLocation = e.target.value;
-            console.log(
-              `Event on subLocation ${props.index}. Value changed to:`,
-              e.target.value
-            );
-            setState({ ...state, subLocation });
-            props.onChange(null, e.target.value, null);
-          }}
-        >
-          <option value= {null}>Select an option</option>
-          {SubLocationItems}
-          {/* <option value="ankles">ankles</option>
-          <option value="wrist">wrist</option> */}
-        </select>
-      </label>
-      <label>
-        <strong>Symptom:</strong>
-        <br/>
-        <select
-          value={state.symptom}
-          onChange={(e) => {
-            let symptom = e.target.value;
-            console.log(
-              `Event on Symptom ${props.index}. Value changed to:`,
-              e.target.value
-            );
-            setState({ ...state, symptom });
-            props.onChange(null, null, e.target.value);
-          }}
-
-        >
-          <option value= {null}>Select an option</option>
-          {symptomKeyFinder(symptoms)}
-          {/* <option value="swollen">swollen</option>
-          <option value="bruised">bruised</option> */}
-        </select>
-      </label>
-      <div className="delete-symptom-button">
+    <div className="card" id="form">
+    <div class="card-body">
+    <label>
+          <strong>Location:</strong>
+          <div
+            value={state.bodyPart}
+            onChange={(e) => {
+              let bodyPart = e.target.value;
+              console.log(
+                `Event on Body Part ${props.index}. Value changed to:`,
+                e.target.value
+              );
+              setState({ ...state, bodyPart });
+              props.onChange(e.target.value, null, null);
+            }}
+          >
+            {props.defaultValue}
+            {/* {bodyPartitems} */}
+          </div>
+        </label>
+  
+        <label>
+          <strong>Sub-Location:</strong>
+          <br/>
+          <select
+            value={state.subLocation}
+            onChange={(e) => {
+              let subLocation = e.target.value;
+              console.log(
+                `Event on subLocation ${props.index}. Value changed to:`,
+                e.target.value
+              );
+              setState({ ...state, subLocation });
+              props.onChange(null, e.target.value, null);
+            }}
+          >
+            <option value= {null}>Select an option</option>
+            {SubLocationItems}
+            {/* <option value="ankles">ankles</option>
+            <option value="wrist">wrist</option> */}
+          </select>
+        </label>
+        <label>
+          <strong>Symptom:</strong>
+          <br/>
+          <select
+            value={state.symptom}
+            onChange={(e) => {
+              let symptom = e.target.value;
+              console.log(
+                `Event on Symptom ${props.index}. Value changed to:`,
+                e.target.value
+              );
+              setState({ ...state, symptom });
+              props.onChange(null, null, e.target.value);
+            }}
+  
+          >
+            <option value= {null}>Select an option</option>
+            {symptomKeyFinder(symptoms)}
+            {/* <option value="swollen">swollen</option>
+            <option value="bruised">bruised</option> */}
+          </select>
+        </label>
+        <div className="delete-symptom-button">
+        <Button variant="outline-danger">
         <FontAwesomeIcon
-          onClick={() => props.delSymptom(props.index)}
-          icon={faTrash}
-        />
-      </div>
+            onClick={() => props.delSymptom(props.index)}
+            icon={faTrash}
+          />
+          
+          </Button>{' '}
+        </div>
+      
     </div>
+  </div>
   );
 }
