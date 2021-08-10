@@ -11,6 +11,13 @@
   margin: 1rem;
 }
 
+
+.submit {
+  display: flex;
+}
+
+
+
 .login .submit input {
   background-color: lightseagreen;
   border: none;
@@ -18,10 +25,9 @@
   padding: 10px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  align-self: center;
-  margin: 2rem;
+  position: relative;
+  left: 30%;
 }
 
 .login .submit :hover {
