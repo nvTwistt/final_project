@@ -13,8 +13,8 @@ export default function App(props) {
 
   return (
     <Router>
+      <NavigationBar />
       <div className="App">
-        <NavigationBar />
         <Route exact={true} path="/">
           <SymptomsPage />
         </Route>
