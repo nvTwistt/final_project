@@ -1,28 +1,7 @@
-/* nav bar styling */
-nav {
-  display: flex;
+.navbar-custom {
   background-color: lightseagreen;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0; 
-  width: 100%;
-  z-index: 900;
 }
-a {
+
+.link-custom {
   color: white;
-}
-a:hover {
-  color: rgb(114, 111, 111)
-}
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-nav ul li {
-  margin: 0.5rem;
 }
