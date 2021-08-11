@@ -8,6 +8,14 @@
   display: flexbox;
 }
 
+.background{
+  position: fixed;
+  top: 20rem;
+  left: 50rem;
+  opacity: 0.3;
+}
+
+
 .diagnosis {
   display: flex;
   justify-content: center;

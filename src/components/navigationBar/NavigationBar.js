@@ -10,22 +10,35 @@ export default function NavigationBar(props) {
   return (
     <Navbar fixed="top" className="navbar-custom" variant="dark">
       <Navbar.Brand href="/">
+        <img
+          src="/logo.png"
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+        />{'  '}
         Diagnose.It
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ms-auto">
-        {auth && <Nav.Link className="user-logged-in">{`Logged in as ${user.name}`}</Nav.Link>}
-        {auth && <Nav.Link href="/appointmets">My Appointments</Nav.Link>}
-        {auth && <Nav.Item><Logout /></Nav.Item>}
+        <Nav className="ms-auto">
+          {auth && (
+            <Nav.Link className="user-logged-in">{`Logged in as ${user.name}`}</Nav.Link>
+          )}
+          {auth && <Nav.Link href="/appointmets">My Appointments</Nav.Link>}
+          {auth && (
+            <Nav.Item>
+              <Logout />
+            </Nav.Item>
+          )}
 
-        {!auth && <Nav.Link href="/patients/login">Patient Login</Nav.Link>}
+          {!auth && <Nav.Link href="/patients/login">Patient Login</Nav.Link>}
 
-        {!auth && <Nav.Link href="/doctors/login">Doctor Login</Nav.Link>}
+          {!auth && <Nav.Link href="/doctors/login">Doctor Login</Nav.Link>}
 
-        {!auth && <Nav.Link href="/register">Register</Nav.Link>}
-      </Nav>
+          {!auth && <Nav.Link href="/register">Register</Nav.Link>}
+        </Nav>
       </Navbar.Collapse>
     </Navbar>
   );
