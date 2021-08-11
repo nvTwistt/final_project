@@ -8,7 +8,7 @@ import { Navbar, Nav } from "react-bootstrap";
 export default function NavigationBar(props) {
   const { auth, user } = useContext(authContext);
   return (
-    <Navbar className="navbar-custom" variant="dark">
+    <Navbar fixed="top" className="navbar-custom" variant="dark">
       <Navbar.Brand href="/">
         Diagnose.It
       </Navbar.Brand>

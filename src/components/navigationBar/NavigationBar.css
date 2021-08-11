@@ -1,5 +1,7 @@
 .navbar-custom {
   background-color: lightseagreen;
+  position: sticky;
+  top: 0;
 }
 
 .link-custom {

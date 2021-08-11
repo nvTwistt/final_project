@@ -97,7 +97,7 @@ export default function SymptomForm(props) {
   return (
     
     <div className="card" id="form">
-    <div class="card-body">
+    <div className="card-body">
     <label>
           <strong>Location:</strong>
           <div
