@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SymptomList from "./SymptomList";
 import "./SymptomsPage.css";
 import { Link } from "react-router-dom";
-import {Dropdown, DropdownButton, Modal, Button } from "react-bootstrap";
+import { Dropdown, DropdownButton, Modal, Button } from "react-bootstrap";
 export default function SymptomsPage(props) {
   const [symptomList, setSymptomList] = useState([]);
   const [symptomID, setSymptomID] = useState([]);
@@ -77,21 +77,11 @@ export default function SymptomsPage(props) {
         finalSymptomIDArray={finalSymptomIDArray}
       />
 
-      <DropdownButton
-        title="Select Gender"
-        variant="primary"
-        className="gender-select"
-        onSelect={(e) => setGender(e)}
-      >
-        <Dropdown.Item eventKey={"Male"}>Male</Dropdown.Item>
-        <Dropdown.Item eventKey={"Female"}>Female</Dropdown.Item>
-      </DropdownButton>
-
       <Link
         onClick={(e) => {
           if (hasNullValues(symptomList)) {
             e.preventDefault();
-            setShow(true)
+            setShow(true);
           }
         }}
         className="diagnosis-button"
@@ -107,18 +97,32 @@ export default function SymptomsPage(props) {
         Get Diagnosis
       </Link>
 
+      <div className="gender-select">
+        <DropdownButton
+          title="Select Gender"
+          variant="primary"
+          className="gender-select"
+          onSelect={(e) => setGender(e)}
+        >
+          <Dropdown.Item eventKey={"Male"}>Male</Dropdown.Item>
+          <Dropdown.Item eventKey={"Female"}>Female</Dropdown.Item>
+        </DropdownButton>
+      </div>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>Missing Fields</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Ensure a gender has been selected, and each symptom card has been filled out completley!</Modal.Body>
+        <Modal.Body>
+          Ensure a gender has been selected, and each symptom card has been
+          filled out completley!
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
             Ok
           </Button>
         </Modal.Footer>
       </Modal>
-      
     </form>
   );
 }
