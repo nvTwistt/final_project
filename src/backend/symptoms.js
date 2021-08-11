@@ -52,8 +52,8 @@ const bodyLocations = {
   "Arms & shoulder": [7, arms_shoulder],
   "Chest & back": [15, chest_back],
   "Head, throat & neck": [6, head_throat_neck],
-  Legs: [10,legs],
-  "Skin, joints & general": [17,skin_joints_general],
+  Legs: [10, legs],
+  "Skin, joints & general": [17, skin_joints_general],
 };
 
 /**
@@ -99,6 +99,6 @@ const body = {
   },
 };
 
-module.exports = {bodyLocations,body}
+module.exports = { bodyLocations, body }
 // 16 abdomen
 //console.log(body[15][33]);
