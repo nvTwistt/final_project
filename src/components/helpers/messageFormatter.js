@@ -1,3 +1,21 @@
+/**
+ * Function takes in an object called payLoad 
+ * The function will parse the object and return a message to the patient, doctor and the 
+ * patients phone number
+ * @param {*} payload 
+ * @returns array
+ * example:
+ * payload = {
+  info: { name: 'John Cena', to: '5871234567' },
+  diagnosis: {
+    symptom: 'headache',
+    accuracy: 90,
+    specialization_1: 'general practice',
+    specialization_2: 'neurology'
+  }
+
+  returns: [message_1, message_2, 5871234567]
+ */
 const patientMessage = (payload) => {
     let information = payload['info'];
     let diagnosis = payload['diagnosis'];
