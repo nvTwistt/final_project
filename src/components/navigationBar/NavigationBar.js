@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./NavigationBar.css";
 import Logout from "../login/Logout";
 import { useContext } from "react";
 import { authContext } from "../login/AuthProvider";
-import { Navbar, Nav, Container, Alert } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 export default function NavigationBar(props) {
   const { auth, user } = useContext(authContext);

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Button } from "bootstrap";
 const axios = require("axios");
 
 export default function AppointmentRequest(props) {

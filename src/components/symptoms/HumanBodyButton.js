@@ -2,8 +2,12 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import "./SymptomList.css";
-import humanBody from "./human_body.png";
-
+/**
+ * Functiohn generates dynamic headings on an image of a human body. These headings are 
+ * clickable so that users can click on heading and add that specific body locaion.
+ * @param {*} props 
+ * @returns 
+ */
 export default function SymptomList(props) {
 
   return (

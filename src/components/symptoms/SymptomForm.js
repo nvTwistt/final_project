@@ -3,7 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./SymptomForm.css";
 import Button from 'react-bootstrap/Button'
-
+/**
+ * function handles the synptomForm component
+ * This component handles the user selecting the sublocation and the symptoms they are feeling.
+ * @param {*} props 
+ * @returns 
+ */
 export default function SymptomForm(props) {
   //need to get symptoms for each body part from API
   //for now will hard code
@@ -19,7 +24,6 @@ export default function SymptomForm(props) {
 
   const bodyLocations = require('../../components/helpers/selectors');
   const bodyObj = require('../../backend/symptoms');
-  //const submitDiagnosis = require('../diagnosis/diagnosis')
   //function for mapping the names of body parts to creating an item
   console.log("testing", state.bodyPart);
 
@@ -34,7 +38,6 @@ export default function SymptomForm(props) {
   
   //get the subitems such as foot. ankle from legs
   const bodyPartSubLocation = subLocationItems();
-  console.log("body keys: ", bodyPartSubLocation);
   //get the object of all sublocation body parts and get its keys
   const subLocationKeys = Object.keys(bodyPartSubLocation[1]);
   //function maps the keys to options in the dropdown menu
@@ -51,8 +54,6 @@ export default function SymptomForm(props) {
   }
   //SUBLOCATION ID
   const sublocationValue = symptomItems();
-  console.log("location: ", bodyPartSubLocation[0])
-  console.log("SublocationValue: ", sublocationValue);
   // BODY PART ID
   const locationID = bodyPartSubLocation[0];
   const symptoms = bodyObj.body[locationID][sublocationValue]
@@ -81,31 +82,17 @@ export default function SymptomForm(props) {
     const locationID = bodyPartSubLocation[0];
     // returns the sublocation ID 
     const sublocationValue = symptomItems();
-    console.log("keys for body object: ",locationID, sublocationValue);
     if (sublocationValue !== undefined && locationID) {
       const symptomObj = bodyObject.body[locationID][sublocationValue]; //obj
       const symptomIDValue = symptomObj[state.symptom];
-      console.log("id value: ", symptomIDValue);
       if (symptomIDValue) {
         return symptomIDValue[0];
       }
       
     }
-   //console.log("body obj", bodyObject.body[16][36] )
   }
   const getSymptomID = symptomID(bodyObj);
-  
   props.finalSymptomIDArray(getSymptomID)
-  console.log("Symptom ID: ", getSymptomID);
-  //call the api with the symptoms ID and it returns the response.
-  // diagnoseUser.generic_api_call(getSymptomID).then(response => {
-  //   const diagnosisReport = diagnosisResponse.formatter(response)
-  //   // console.log("does this work: ",submitDiagnosis.default(diagnosisReport));
-  //   console.log('-----', diagnosisReport);
-  // })
-
-  // console.log("lets get it: ");
-
  
   return (
     
@@ -126,7 +113,6 @@ export default function SymptomForm(props) {
             }}
           >
             {props.defaultValue}
-            {/* {bodyPartitems} */}
           </div>
         </label>
   
@@ -147,8 +133,6 @@ export default function SymptomForm(props) {
           >
             <option value= {null}>Select an option</option>
             {SubLocationItems}
-            {/* <option value="ankles">ankles</option>
-            <option value="wrist">wrist</option> */}
           </select>
         </label>
         <label>
@@ -169,8 +153,6 @@ export default function SymptomForm(props) {
           >
             <option value= {null}>Select an option</option>
             {symptomKeyFinder(symptoms)}
-            {/* <option value="swollen">swollen</option>
-            <option value="bruised">bruised</option> */}
           </select>
         </label>
         <div className="delete-symptom-button">
