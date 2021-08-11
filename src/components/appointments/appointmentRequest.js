@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "bootstrap";
+import "./appointmentRequest.css"
 const axios = require("axios");
 
 export default function AppointmentRequest(props) {
@@ -76,7 +77,8 @@ export default function AppointmentRequest(props) {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className="appt-req" onSubmit={onSubmit}>
+      <h1>Appointment Request Form</h1>
       <div>
         Number:
         <input
@@ -93,8 +95,8 @@ export default function AppointmentRequest(props) {
           onChange={onHandleName}
         ></input>
       </div>
-      <button type="submit" onClick={handleOpen}>
-        Submit
+      <button className="btn btn-primary "type="submit" onClick={handleOpen}>
+        Submit Request
       </button>
 
       <Modal show={show} onHide={handleClose}>
