@@ -5,7 +5,7 @@
 }
 
 .symptom-container .card {
-  margin-bottom: 2rem;
+  margin: 2rem;
   border:rgba(0, 0, 0, 0.295) solid;
   height: 150px;
   transition: box-shadow .3s;
