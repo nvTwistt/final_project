@@ -1,63 +1,37 @@
-/* symptom items */
-.symptom-form {
-  display: flex;
-  flex-direction: column;
-}
-
 .symptom-container {
   position: absolute;
   right:2rem;
   width: 50%;
-
 }
 
-.symptom-item {
-  margin: 0.5rem;
-  text-align: center;
-  height: 2rem;
+.symptom-container .card {
+  margin: 2rem;
+  border:rgba(0, 0, 0, 0.295) solid;
+  height: 150px;
+  transition: box-shadow .3s;
+  border-radius: 20px;
+  font-size: larger;
+}
+
+.symptom-container .card:hover {
+  box-shadow: 0 0 11px black; 
+}
+
+.symptom-container .card .card-body {
   display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
-  height: 5rem;
-  width:100%;
-  font-size: large;
-  border: black solid;
-  overflow: hidden
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 
-.symptom-item label {
-  margin: 0.5rem;
-  width:33%;
-  height: 60%;
+.symptom-container .card .card-body label {
+  width: 33%;
 }
 
-.symptom-item label select {
-  margin-left: 0.5rem;
-  width: 70%;
-  font-size: large;
-  text-align: center;
+.symptom-container select{
+  width: 75%;
 }
+
 
 .delete-symptom-button {
-  color: rgb(189, 131, 131);
-  position: relative;
-  align-self: flex-end;
-}
-
-.delete-symptom-button :hover {
-  color: red;
-}
-
-.diagnosis-button :hover {
-  background-color:blue;
-}
-
-#form {
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: space-between;
-
-  margin-top: 3em;
+  margin-top: auto;
 }
