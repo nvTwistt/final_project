@@ -3,7 +3,7 @@ import "./NavigationBar.css";
 import Logout from "../login/Logout";
 import { useContext } from "react";
 import { authContext } from "../login/AuthProvider";
-import { Navbar, Nav} from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 export default function NavigationBar(props) {
   const { auth, user } = useContext(authContext);

@@ -11,6 +11,10 @@ const numberCleaner = require('../helpers/phoneFormatter');
 const messageCleaner = require('../helpers/messageFormatter');
 const cors = require('cors');
 const app = express();
+
+/**
+ * Set up app permissions so that data can be transfered from one server to another.
+ */
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(pino);
@@ -21,12 +25,18 @@ app.use(function (req, res, next) {
   next();
 })
 
+/**
+ * Basic get request to test that the server is working.
+ */
 app.get('/', (req, res) => {
   res.status(200).send({
     message: "running",
   });
 });
 
+/**
+ * Axios post request which authorizes twilio to send a message to patients and doctors.
+ */
 app.post('/message', function (req, res) {
   // Use the REST client to send a text message
   const body = JSON.parse(JSON.stringify(req.body));
