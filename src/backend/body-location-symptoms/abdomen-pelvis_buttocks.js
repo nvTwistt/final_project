@@ -1,23 +1,25 @@
-const abdomen = { 'Abdominal pain': [ 10, false ],
-Nausea: [ 44, false ],
-Heartburn: [ 45, false ],
-'Bloated feeling in the stomach': [ 48, false ],
-Cravings: [ 49, false ],
-Diarrhea: [ 50, false ],
-'Reduced appetite': [ 54, false ],
-'Early satiety': [ 92, false ],
-Vomiting: [ 101, false ],
-'Increased appetite': [ 131, false ],
-'Fast, deepened breathing': [ 153, false ],
-Flatulence: [ 154, false ],
-'Stomach burning': [ 179, false ],
-'Vomiting blood': [ 181, true ],
-'Abdominal guarding': [ 188, false ],
-'Rebound tenderness': [ 191, false ],
-'Bulging abdominal wall': [ 192, false ],
-'Abdominal pain associated with menstruation': [ 223, false ],
-'Bleeding from vagina': [ 284, false ],
-'Distended abdomen': [ 989, false ] };
+const abdomen = {
+  'Abdominal pain': [10, false],
+  Nausea: [44, false],
+  Heartburn: [45, false],
+  'Bloated feeling in the stomach': [48, false],
+  Cravings: [49, false],
+  Diarrhea: [50, false],
+  'Reduced appetite': [54, false],
+  'Early satiety': [92, false],
+  Vomiting: [101, false],
+  'Increased appetite': [131, false],
+  'Fast, deepened breathing': [153, false],
+  Flatulence: [154, false],
+  'Stomach burning': [179, false],
+  'Vomiting blood': [181, true],
+  'Abdominal guarding': [188, false],
+  'Rebound tenderness': [191, false],
+  'Bulging abdominal wall': [192, false],
+  'Abdominal pain associated with menstruation': [223, false],
+  'Bleeding from vagina': [284, false],
+  'Distended abdomen': [989, false]
+};
 const buttocks_rectum = {
   Diarrhea: [50, false],
   "Difficult defecation": [79, false],
@@ -82,4 +84,4 @@ const pelvis = {
   "Swelling in the genital area": [236, false],
   "Itching or burning in the genital area": [268, false],
 };
-module.exports = {abdomen,buttocks_rectum, genitals_groin,hips,pelvis}
+module.exports = { abdomen, buttocks_rectum, genitals_groin, hips, pelvis }
