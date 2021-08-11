@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import "./SymptomList.css";
-import humanBody from "./human_body.png";
 
 export default function SymptomList(props) {
 
