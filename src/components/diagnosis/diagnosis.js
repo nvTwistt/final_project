@@ -5,6 +5,7 @@ import "./diagnosis.css";
 import Button from 'react-bootstrap/Button'
 import { Accordion, Card, button } from "react-bootstrap";
 import AppointmentRequest from "../appointments/appointmentRequest"
+import Understand from "twilio/lib/rest/preview/Understand";
 const diagnoseUser = require('../../apiRequests/diagnose');
 const diagnosisResponse = require('../helpers/resFormat');
 
@@ -17,39 +18,43 @@ export default function Diagnosis(props) {
   let [selectDiagnosis, setSelectDiagnosis] = useState({})
 
 
-  console.log("Gender is here",data.state.gender)
+  console.log("Gender is here", data.state.gender)
 
 
 
   useEffect(() => {
     let mounted = true;
     diagnoseUser.generic_api_call(data.state.diagnosis, data.state.gender).then(response => {
-      const diagnosisReport = diagnosisResponse.formatter(response)
-      // console.log("does this work: ",submitDiagnosis.default(diagnosisReport));
-      console.log('-----', diagnosisReport);
-      const reportLength = diagnosisReport.length;
-      let results = []
-      for (const reports of diagnosisReport) {
-        if (results.length > 2) {
-          break;
+      if (response === undefined || response === null) {
+        alert("bad api request, please return to home");
+      } else {
+        const diagnosisReport = diagnosisResponse.formatter(response)
+        // console.log("does this work: ",submitDiagnosis.default(diagnosisReport));
+        console.log('-----', diagnosisReport);
+        const reportLength = diagnosisReport.length;
+        let results = []
+        for (const reports of diagnosisReport) {
+          if (results.length > 2) {
+            break;
+          }
+          let unformattedName = reports.name
+          let diagnosisName = unformattedName.toLowerCase();
+          let accuracyNumber = reports.accuracy;
+          let specializtionList = reports.specializations;
+          let diagnosisList = [diagnosisName, accuracyNumber, specializtionList];
+          results.push(diagnosisList);
         }
-        let unformattedName = reports.name
-        let diagnosisName = unformattedName.toLowerCase();
-        let accuracyNumber = reports.accuracy;
-        let specializtionList = reports.specializations;
-        let diagnosisList = [diagnosisName, accuracyNumber, specializtionList];
-        results.push(diagnosisList);
-      }
-      if(mounted) {
-        setList(results)
+        if (mounted) {
+          setList(results)
+        }
       }
     })
     return () => mounted = false;
   }, []);
-  
+
   console.log("list to format: ", list);
   let diagnosisData;
-  if (list.length === 0 ) {
+  if (list.length === 0) {
     return (
       <div className='toMain'>
         <h4>We are sorry, there are no diagnoses for the symptoms you have entered.</h4>
@@ -80,8 +85,8 @@ export default function Diagnosis(props) {
                     <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>Book Now</Link>
                     </Button> */}
                     <Button variant="outline-light">
-                     <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>Book Now</Link>
-                   </Button>{''}
+                      <Link to={{ pathname: "/appointments", state: { diagnosis: diagnosis } }}>Book Now</Link>
+                    </Button>{''}
                   </Card.Body>
                 </Accordion.Collapse>
               </Card>
@@ -89,11 +94,11 @@ export default function Diagnosis(props) {
           </div>
         </div>
       )
- 
-   })
+
+    })
   }
-  
-  
+
+
   return (
     <div className="diagnosis">
       <div className="info">
@@ -103,10 +108,10 @@ export default function Diagnosis(props) {
 
       </div>
       <div class="card">
-            <div class="card-body">
-            {diagnosisData}
-            </div>
-      </div> 
+        <div class="card-body">
+          {diagnosisData}
+        </div>
+      </div>
 
     </div>
   );
