@@ -101,7 +101,7 @@ export default function AppointmentRequest(props) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <Modal.Title>Appointment Confirmed</Modal.Title>
+          <Modal.Title>Appointment Request Successful</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           Message to doctor sent successfully, and they will be reaching out to
