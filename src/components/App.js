@@ -2,7 +2,7 @@ import "./App.css";
 import SymptomsPage from "./symptoms/SymptomsPage";
 import NavigationBar from "./navigationBar/NavigationBar";
 import Login from "./login/Login";
-import Diagnosis from "./diagnosis/diagnosis"
+import Diagnosis from "./diagnosis/diagnosis";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useContext } from "react";
 import { authContext } from "./login/AuthProvider";
@@ -13,16 +13,19 @@ export default function App(props) {
 
   return (
     <Router>
-    <NavigationBar />
+      <NavigationBar />
       <div className="App">
-     
+        <div className="background">
+          <img alt="background" src="/logo.png" />
+        </div>
+
         <Route exact={true} path="/">
           <SymptomsPage />
         </Route>
 
         <Route exact={true} path="/patients/login">
-        <h1 className="login-type">Patient Login</h1>
-        {!auth && <Login />}
+          <h1 className="login-type">Patient Login</h1>
+          {!auth && <Login />}
         </Route>
 
         <Route exact={true} path="/doctors/login">
@@ -36,11 +39,11 @@ export default function App(props) {
         </Route>
 
         <Route exact={true} path="/diagnosis">
-          <Diagnosis className="diagnosis"/>
+          <Diagnosis className="diagnosis" />
         </Route>
         <Route exact={true} path="/appointments">
-        <AppointmentRequest/>
-      </Route>
+          <AppointmentRequest />
+        </Route>
       </div>
     </Router>
   );
