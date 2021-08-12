@@ -15,10 +15,6 @@ export default function App(props) {
     <Router>
       <NavigationBar />
       <div className="App">
-        <div className="background">
-          <img alt="background" src="/logo.png" />
-        </div>
-
         <Route exact={true} path="/">
           <SymptomsPage />
         </Route>
